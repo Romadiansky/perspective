@@ -1,3 +1,3 @@
 <div class="jumbotron">
-  <p>Hello World,</p>
+  <p><%= time_ago_in_words(@entry.created_at) %> ago, <%= current_user.email %> answered a question about: <%= @entry.prompts.first.question.capitalize %>. They said they were: <%= @entry.prompts.first.answers.first.body %>.</p>
 </div>
