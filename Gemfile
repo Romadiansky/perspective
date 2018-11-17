@@ -27,7 +27,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 
-gem 'bootstrap', '~> 4.0.0'
+gem "bootstrap", ">= 4.1.2"
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
