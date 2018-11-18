@@ -1,6 +1,65 @@
-<div class="colour-title">
-  <p>&nbsp;<%= time_ago_in_words(@entry.created_at).capitalize %> ago, <%= current_user.email %> answered a question about: <%= @entry.prompts.first.question.capitalize %>. They said they were: <%= @entry.prompts.first.answers.first.body %>.</p>
+<div class="subscribe-line subscribe-line-image" style="background-image: url('https://images.unsplash.com/photo-1517784120905-d9f8d5aced1a?ixlib=rb-0.3.5&s=fd6eae864a8bc5f633a1673bbc14cc75&auto=format&fit=crop&w=2250&q=80');">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 ml-auto mr-auto">
+        <div class="text-center">
+          <h3 class="colour-title">Tell me 3 things you're grateful for right now</h3>
+          <p class="description">
+            You don't have to think big. It's the little things...
+          </p>
+        </div>
+
+        <div class="card card-raised card-form-horizontal">
+          <div class="card-body ">
+            <form method="" action="">
+              <div class="row">
+                <div class="col-11 ">
+                  <span class="bmd-form-group"><div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fal fa-heart-circle colour-title"></i>
+                      </span>
+                    </div>
+                    <input type="text" value="" placeholder="my cat was extra cuddly tonight" class="form-control">
+                  </div></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-11 ">
+                  <span class="bmd-form-group"><div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fal fa-heart-circle colour-title"></i>
+                      </span>
+                    </div>
+                    <input type="text" value="" placeholder="I saw some great comedy earlier" class="form-control">
+                  </div></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-11 ">
+                  <span class="bmd-form-group"><div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fal fa-heart-circle colour-title"></i>
+                      </span>
+                    </div>
+                    <input type="text" value="" placeholder="I saw some great comedy earlier" class="form-control">
+                  </div></span>
+                </div>
+                <div class="col mt-2 align-self-end">
+                  <button type="button" class="btn btn-primary btn-block candle-button">DONE</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
 <i class="fal fa-acorn fa-2x colour-title"></i>
 <i class="fal fa-seedling fa-2x colour-title"></i>
 <div class="section-black">
