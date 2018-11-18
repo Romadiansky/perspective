@@ -5,13 +5,14 @@
 <table>
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @entries.each do |entry| %>
-      <tr> Entry # <%= entry.id %>
+      <tr>
+        <td> Entry # <%= entry.id %> by <%= entry.user.first_name %> <%= entry.user.last_name %> </td>
         <td><%= link_to 'Show', entry %></td>
         <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
         <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
