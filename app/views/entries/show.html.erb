@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+  <tbody>
+    <% @prompts.each do |prompt| %>
+      <tr>
+        <td> <%= link_to prompt.question, '/questions/' + prompt.id.to_s %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+
+<%= link_to 'Back', entries_path %>
