@@ -1,3 +1,5 @@
-<div class="jumbotron">
-  <p><%= time_ago_in_words(@entry.created_at) %> ago, <%= current_user.email %> answered a question about: <%= @entry.prompts.first.question.capitalize %>. They said they were: <%= @entry.prompts.first.answers.first.body %>.</p>
+<div class="colour-title">
+  <p>&nbsp;<%= time_ago_in_words(@entry.created_at).capitalize %> ago, <%= current_user.email %> answered a question about: <%= @entry.prompts.first.question.capitalize %>. They said they were: <%= @entry.prompts.first.answers.first.body %>.</p>
 </div>
+<i class="fal fa-acorn fa-2x"></i>
+<i class="fal fa-seedling fa-2x"></i>
