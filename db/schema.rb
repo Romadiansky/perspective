@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_18_021848) do
+ActiveRecord::Schema.define(version: 2018_11_18_034533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,17 +41,18 @@ ActiveRecord::Schema.define(version: 2018_11_18_021848) do
 
   create_table "prompts", force: :cascade do |t|
     t.bigint "entry_id"
-    t.string "question"
-    t.boolean "watson", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "question_id"
     t.index ["entry_id"], name: "index_prompts_on_entry_id"
+    t.index ["question_id"], name: "index_prompts_on_question_id"
   end
 
   create_table "questions", force: :cascade do |t|
     t.string "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "watson", default: false
   end
 
   create_table "users", force: :cascade do |t|
