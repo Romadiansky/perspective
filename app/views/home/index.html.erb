@@ -1,5 +1,484 @@
 <div class="colour-title">
   <p>&nbsp;<%= time_ago_in_words(@entry.created_at).capitalize %> ago, <%= current_user.email %> answered a question about: <%= @entry.prompts.first.question.capitalize %>. They said they were: <%= @entry.prompts.first.answers.first.body %>.</p>
 </div>
-<i class="fal fa-acorn fa-2x"></i>
-<i class="fal fa-seedling fa-2x"></i>
+<i class="fal fa-acorn fa-2x colour-title"></i>
+<i class="fal fa-seedling fa-2x colour-title"></i>
+<div id="cards" class="cd-section">
+  <div class="section-gray">
+    <div class="cards">
+
+      <div class="container">
+        <div class="title">
+          <h2>Cards</h2>
+          <h3>Blog Cards</h3>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="card card-blog">
+              <div class="card-header card-header-image">
+                <a href="#pablo">
+                  <img class="img" src="https://images.unsplash.com/photo-1516842739138-83814d37aea1?ixlib=rb-0.3.5&s=ff1a5c8c0b9c2dd3cd91b4f3cea1c08d&auto=format&fit=crop&w=1466&q=80">
+                  <div class="card-title">
+                    This Summer Will be Awesome
+                  </div>
+                </a>
+                <div class="colored-shadow" style="background-image: url(&quot;https://images.unsplash.com/photo-1516842739138-83814d37aea1?ixlib=rb-0.3.5&s=ff1a5c8c0b9c2dd3cd91b4f3cea1c08d&auto=format&fit=crop&w=1466&q=80&quot;); opacity: 1;"></div></div>
+                <div class="card-body">
+                  <h6 class="card-category text-info">Fashion</h6>
+                  <p class="card-description">
+                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                  </p>
+                </div></div>
+
+                <div class="card bg-info">
+                  <div class="card-body">
+                    <h5 class="card-category card-category-social">
+                      <i class="fab fa-twitter"></i> Twitter
+                    </h5>
+                    <h4 class="card-title">
+                      <a href="#pablo">"You Don't Have to Sacrifice Joy to Build a Fabulous Business and Life"</a>
+                    </h4>
+                  </div>
+                  <div class="card-footer">
+                    <div class="author">
+                      <a href="#pablo">
+                       <img src="https://images.unsplash.com/photo-1516842739138-83814d37aea1?ixlib=rb-0.3.5&s=ff1a5c8c0b9c2dd3cd91b4f3cea1c08d&auto=format&fit=crop&w=1466&q=80" alt="..." class="avatar img-raised">
+                       <span>Tania Andrew</span>
+                     </a>
+                   </div>
+                   <div class="stats ml-auto">
+                    <i class="material-icons">favorite</i> 2.4K ·
+                    <i class="material-icons">share</i> 45
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="card"><div class="card-body ">
+                <h6 class="card-category text-danger">
+                  <i class="material-icons">trending_up</i> Trending
+                </h6>
+                <h4 class="card-title">
+                  <a href="#pablo">To Grow Your Business Start Focusing on Your Employees</a>
+                </h4>
+
+              </div><div class="card-footer ">
+                <div class="author">
+                  <a href="#pablo">
+                   <img src="https://images.unsplash.com/photo-1516842739138-83814d37aea1?ixlib=rb-0.3.5&s=ff1a5c8c0b9c2dd3cd91b4f3cea1c08d&auto=format&fit=crop&w=1466&q=80" alt="..." class="avatar img-raised">
+                   <span>Lord Alex</span>
+                 </a>
+               </div>
+               <div class="stats ml-auto">
+                <i class="material-icons">favorite</i> 342 ·
+                <i class="material-icons">chat_bubble</i> 45
+              </div>
+            </div></div>
+
+
+            <div class="card card-blog"><div class="card-header card-header-image">
+              <a href="#pablo">
+                <img class="img" src="https://images.unsplash.com/photo-1516842739138-83814d37aea1?ixlib=rb-0.3.5&s=ff1a5c8c0b9c2dd3cd91b4f3cea1c08d&auto=format&fit=crop&w=1466&q=80">
+              </a>
+              <div class="colored-shadow" style="background-image: url(&quot;https://images.unsplash.com/photo-1516842739138-83814d37aea1?ixlib=rb-0.3.5&s=ff1a5c8c0b9c2dd3cd91b4f3cea1c08d&auto=format&fit=crop&w=1466&q=80&quot;); opacity: 1;"></div></div><div class="card-body ">
+                <h6 class="card-category text-success">Legal</h6>
+
+                <h4 class="card-title">
+                  <a href="#pablo">5 Common Legal Mistakes That Can Trip-Up Your Startup</a>
+                </h4>
+                <p class="card-description">
+                  Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                </p>
+
+              </div><div class="card-footer ">
+                <div class="author">
+                  <a href="#pablo">
+                   <img src="https://images.unsplash.com/photo-1516842739138-83814d37aea1?ixlib=rb-0.3.5&s=ff1a5c8c0b9c2dd3cd91b4f3cea1c08d&auto=format&fit=crop&w=1466&q=80" alt="..." class="avatar img-raised">
+                   <span>Mike John</span>
+                 </a>
+               </div>
+               <div class="stats ml-auto">
+                <i class="material-icons">schedule</i> 5 min read
+              </div>
+            </div></div>
+
+          </div>
+
+          <div class="col-lg-4 col-md-12">
+            <div class="row">
+              <div class="col-lg-12 col-md-6">
+                <div class="card card-blog">
+                  <div class="card-header card-header-image">
+                    <a href="#pablo">
+                      <img class="img" src="https://images.unsplash.com/photo-1516842739138-83814d37aea1?ixlib=rb-0.3.5&s=ff1a5c8c0b9c2dd3cd91b4f3cea1c08d&auto=format&fit=crop&w=1466&q=80">
+                    </a>
+                    <div class="colored-shadow" style="background-image: url(&quot;https://images.unsplash.com/photo-1516842739138-83814d37aea1?ixlib=rb-0.3.5&s=ff1a5c8c0b9c2dd3cd91b4f3cea1c08d&auto=format&fit=crop&w=1466&q=80&quot;); opacity: 1;"></div></div><div class="card-body ">
+                      <h6 class="card-category text-danger">
+                        <i class="material-icons">trending_up</i> Trending
+                      </h6>
+                      <h4 class="card-title">
+                        <a href="#pablo">To Grow Your Business Start Focusing on Your Employees</a>
+                      </h4>
+
+                    </div><div class="card-footer ">
+                      <div class="author">
+                        <a href="#pablo">
+                         <img src="https://images.unsplash.com/photo-1516842739138-83814d37aea1?ixlib=rb-0.3.5&s=ff1a5c8c0b9c2dd3cd91b4f3cea1c08d&auto=format&fit=crop&w=1466&q=80" alt="..." class="avatar img-raised">
+                         <span>Mike John</span>
+                       </a>
+                     </div>
+                     <div class="stats ml-auto">
+                      <i class="material-icons">schedule</i> 5 min read
+                    </div>
+                  </div></div>
+                </div>
+                <div class="col-lg-12 col-md-6">
+                  <div class="card bg-success">
+                    <div class="card-body ">
+                      <h5 class="card-category card-category-social">
+                        <i class="fal fa-newspaper-o"></i> TechCrunch
+                      </h5>
+                      <h4 class="card-title">
+                        <a href="#pablo">"Focus on Your Employees"</a>
+                      </h4>
+                      <p class="card-description">
+                        Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                      </p>
+
+                      <div class="card-stats justify-content-center">
+                        <a href="#pablo" class="btn btn-white btn-round">Read Article</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cards" id="morphingCards">
+
+        <div class="container">
+          <div class="title">
+            <h2 id="morphingCard">Morphing Cards</h2>
+            <h3 id="rotatingCards">Rotating Cards</h3>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-lg-4">
+              <div class="rotating-card-container" style="margin-bottom: 30px;">
+                <div class="card card-rotate card-background">
+                  <div class="front front-background" style="background-image: url(&quot;./assets/img/examples/card-blog5.jpg&quot;); width: 510px;">
+                    <div class="card-body">
+                      <h6 class="card-category">Full Background Card</h6>
+                      <a href="#pablo">
+                        <h3 class="card-title">This Background Card Will Rotate on Hover</h3>
+                      </a>
+                      <p class="card-description">
+                        Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="back back-background" style="background-image: url(&quot;./assets/img/examples/card-blog5.jpg&quot;); width: 510px;">
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        Manage Post
+                      </h5>
+                      <p class="card-description">As an Admin, you have shortcuts to edit, view or delete the posts.</p>
+                      <div class="footer text-center">
+                        <a href="#pablo" class="btn btn-info btn-just-icon btn-fill btn-round">
+                          <i class="material-icons">subject</i>
+                        </a>
+                        <a href="#pablo" class="btn btn-success btn-just-icon btn-fill btn-round btn-wd">
+                          <i class="material-icons">mode_edit</i>
+                        </a>
+                        <a href="#pablo" class="btn btn-danger btn-just-icon btn-fill btn-round">
+                          <i class="material-icons">delete</i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="rotating-card-container" style="margin-bottom: 30px;">
+                <div class="card card-rotate">
+                  <div class="front" style="width: 510px;">
+                    <div class="card-body">
+                      <h5 class="card-category card-category-social text-success">
+                        <i class="fal fa-newspaper-o"></i> TechCrunch
+                      </h5>
+
+                      <h4 class="card-title">
+                        <a href="#pablo">This Card is Doing a Full Rotation on Hover...</a>
+                      </h4>
+                      <p class="card-description">
+                        Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                      </p>
+
+                    </div>
+                  </div>
+
+                  <div class="back" style="width: 510px;">
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        Do more...
+                      </h5>
+                      <p class="card-description">
+                        You can read this article or share it with your friends and family on different networks...
+                      </p>
+                      <div class="footer text-center">
+                        <a href="#pablo" class="btn btn-rose btn-round">
+                          <i class="material-icons">subject</i> Read
+                        </a>
+                        <a href="#pablo" class="btn btn-just-icon btn-round btn-twitter">
+                          <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#pablo" class="btn btn-just-icon btn-round btn-dribbble">
+                          <i class="fab fa-dribbble"></i>
+                        </a>
+                        <a href="#pablo" class="btn btn-just-icon btn-round btn-facebook">
+                          <i class="fab fa-facebook"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="rotating-card-container" style="margin-bottom: 30px;">
+                <div class="card card-rotate bg-rose">
+                  <div class="front" style="width: 510px;">
+                    <div class="card-body">
+                      <h5 class="card-category card-category-social">
+                        <i class="fab fa-dribbble"></i> Dribbble
+                      </h5>
+                      <h4 class="card-title">
+                        <a href="#pablo">"Dribbble just acquired Crew, a very interesting startup..."</a>
+                      </h4>
+                      <p class="card-description">
+                        Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                      </p>
+                    </div>
+                    <div class="card-footer">
+                      <div class="author">
+                        <a href="#pablo">
+                         <img src="https://images.unsplash.com/photo-1516842739138-83814d37aea1?ixlib=rb-0.3.5&s=ff1a5c8c0b9c2dd3cd91b4f3cea1c08d&auto=format&fit=crop&w=1466&q=80" alt="..." class="avatar img-raised">
+                         <span>Tania Andrew</span>
+                       </a>
+                     </div>
+                     <div class="stats ml-auto">
+                      <i class="material-icons">favorite</i> 2.4K ·
+                      <i class="material-icons">share</i> 45
+                    </div>
+                  </div>
+                </div>
+
+                <div class="back" style="width: 510px;">
+                  <div class="card-body">
+                    <h5 class="card-category card-category-social">
+                      <i class="fab fa-dribbble"></i> Dribbble
+                    </h5>
+                    <h4 class="card-title">
+                      <a href="#pablo">"Dribbble just acquired Crew, a very interesting startup..."</a>
+                    </h4>
+                    <div class="stats">
+                      <button type="button" name="button" class="btn btn-white btn-fill btn-round">
+                        <i class="material-icons">subject</i> Read
+                      </button>
+                      <button type="button" name="button" class="btn btn-white btn-round btn-link">
+                        <i class="material-icons">bookmark</i> Bookmark
+                      </button>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="title">
+          <h3 id="manualRotatingCards">Manual Rotating Cards</h3>
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-6 col-lg-4">
+            <div class="rotating-card-container manual-flip" style="margin-bottom: 30px;">
+              <div class="card card-rotate">
+                <div class="front" style="width: 510px;">
+                  <div class="card-body">
+                    <h5 class="card-category card-category-social text-success">
+                      <i class="fal fa-newspaper-o"></i> Manual Rotating Card
+                    </h5>
+                    <h4 class="card-title">
+                      <a href="#pablo">"This card is doing a full rotation, click on the rotate button"</a>
+                    </h4>
+                    <p class="card-description">
+                      Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                    </p>
+                    <div class="stats text-center">
+                      <button type="button" name="button" class="btn btn-success btn-fill btn-round btn-rotate">
+                        <i class="material-icons">refresh</i> Rotate...
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="back" style="width: 510px;">
+                  <div class="card-body">
+                    <br>
+                    <h5 class="card-title">
+                      Do more...
+                    </h5>
+                    <p class="card-description">
+                      You can read this article or share it with your friends and family on different networks...
+                    </p>
+                    <div class="stats text-center">
+                      <a href="#pablo" class="btn btn-rose btn-round">
+                        <i class="material-icons">subject</i> Read
+                      </a>
+                      <a href="#pablo" class="btn btn-just-icon btn-round btn-twitter">
+                        <i class="fab fa-twitter"></i>
+                      </a>
+                      <a href="#pablo" class="btn btn-just-icon btn-round btn-dribbble">
+                        <i class="fab fa-dribbble"></i>
+                      </a>
+                      <a href="#pablo" class="btn btn-just-icon btn-round btn-facebook">
+                        <i class="fab fa-facebook"></i>
+                      </a>
+                    </div>
+                    <br>
+                    <button type="button" name="button" class="btn btn-link btn-round btn-rotate">
+                      <i class="material-icons">refresh</i> Back...
+                    </button>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-6 col-lg-4">
+            <div class="rotating-card-container manual-flip" style="margin-bottom: 30px;">
+              <div class="card card-rotate">
+                <div class="front front-background" style="background-image: url(&quot;https://images.unsplash.com/photo-1516842739138-83814d37aea1?ixlib=rb-0.3.5&s=ff1a5c8c0b9c2dd3cd91b4f3cea1c08d&auto=format&fit=crop&w=1466&q=80&quot;); width: 510px;">
+                  <div class="card-body">
+                    <h6 class="card-category">Full Background Card</h6>
+                    <a href="#pablo">
+                      <h3 class="card-title">This card is doing a full rotation, click on the rotate button</h3>
+                    </a>
+                    <p class="card-description">
+                      Don't be scared of the truth because we need to restart the human...
+                    </p>
+
+                    <div class="stats text-center">
+                      <button type="button" name="button" class="btn btn-danger btn-fill btn-round btn-rotate">
+                        <i class="material-icons">refresh</i> Rotate...
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="back back-background" style="background-image: url(&quot;https://images.unsplash.com/photo-1516842739138-83814d37aea1?ixlib=rb-0.3.5&s=ff1a5c8c0b9c2dd3cd91b4f3cea1c08d&auto=format&fit=crop&w=1466&q=80&quot;); width: 510px;">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      Manage Post
+                    </h5>
+                    <p class="card-description">As an Admin, you have shortcuts to edit, view or delete the posts.</p>
+                    <div class="stats text-center">
+                      <a href="#pablo" class="btn btn-info btn-just-icon btn-fill btn-round">
+                        <i class="material-icons">subject</i>
+                      </a>
+                      <a href="#pablo" class="btn btn-success btn-just-icon btn-fill btn-round btn-wd">
+                        <i class="material-icons">mode_edit</i>
+                      </a>
+                      <a href="#pablo" class="btn btn-danger btn-just-icon btn-fill btn-round">
+                        <i class="material-icons">delete</i>
+                      </a>
+
+                      <br>
+                      <br>
+                      <button type="button" name="button" class="btn btn-success btn-fill btn-round btn-rotate">
+                        <i class="material-icons">refresh</i> Back...
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="rotating-card-container manual-flip" style="margin-bottom: 30px;">
+              <div class="card card-rotate bg-warning">
+                <div class="front" style="width: 510px;">
+                  <div class="card-body">
+                    <h5 class="card-category card-category-social">
+                      <i class="material-icons">receipt</i> Manual Rotating Card
+                    </h5>
+                    <h4 class="card-title">
+                      <a href="#pablo">"This card is doing a full rotation, click on the rotate button"</a>
+                    </h4>
+                    <p class="card-description">
+                      Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                    </p>
+                    <div class="stats text-center">
+                      <button type="button" name="button" class="btn btn-white btn-fill btn-round btn-rotate">
+                        <i class="material-icons">refresh</i> Rotate...
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="back" style="width: 510px;">
+                  <div class="card-body">
+                    <br>
+                    <h5 class="card-title">
+                      Do more...
+                    </h5>
+                    <p class="card-description">
+                      You can read this article or share it with your friends and family on different networks...
+                    </p>
+                    <div class="stats text-center">
+                      <a href="#pablo" class="btn btn-white btn-round">
+                        <i class="material-icons">subject</i> Read
+                      </a>
+                      <a href="#pablo" class="btn btn-just-icon btn-round btn-white">
+                        <i class="fab fa-twitter"></i>
+                      </a>
+                      <a href="#pablo" class="btn btn-just-icon btn-round btn-white">
+                        <i class="fab fa-dribbble"></i>
+                      </a>
+                      <a href="#pablo" class="btn btn-just-icon btn-round btn-white">
+                        <i class="fab fa-facebook"></i>
+                      </a>
+
+                      <br>
+                      <br>
+
+                      <button type="button" name="button" class="btn btn-white btn-round btn-rotate">
+                        <i class="material-icons">refresh</i> Back...
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
