@@ -2,8 +2,8 @@
 
   <tbody>
     <% @prompts.each do |prompt| %>
-      <tr> <td> <%= prompt.question %>
-      </td>
+      <tr>
+        <td> <%= link_to prompt.question, '/questions/' + prompt.id.to_s %> </td>
       </tr>
     <% end %>
   </tbody>
