@@ -6,6 +6,7 @@ class Spark
   def next_entry
     if @user
       entry = @user.entries.find_by(state: 'incomplete')
+
       if entry == {}
         next_entry.new_entry
       end
@@ -20,7 +21,7 @@ class Spark
     payload[:id] = entry.id
     payload[:prompts] = []
     puts "---------------"
-    1.upto(5) do |n|
+    1.upto(6) do |n|
       prompt = entry.prompts.new
       prompt.question_id = n
       prompt.save
