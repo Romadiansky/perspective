@@ -1,25 +1,9 @@
 class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
 
-  # GET /answers
-  # GET /answers.json
-  def index
-  end
-
-  # GET /answers/1
-  # GET /answers/1.json
   def show
     @prompt = Prompt.find(params[:entry_id]).question.body
     @answers = Answer.where(prompt_id: (params[:entry_id]))
-  end
-
-  # GET /answers/new
-  def new
-    @answer = Answer.new
-  end
-
-  # GET /answers/1/edit
-  def edit
   end
 
   # POST /answers
