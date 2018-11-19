@@ -11,6 +11,10 @@ class EntriesController < ApplicationController
   # GET /entries/1.json
   def show
     @prompts = @entry.prompts
+        respond_to do |format|
+        format.html { }
+        format.json { render json: Spark.new(current_user).next_entry, status: :ok }
+      end
   end
 
   # GET /entries/new
@@ -30,7 +34,7 @@ class EntriesController < ApplicationController
     respond_to do |format|
       if @entry.save
         format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
-        format.json { render :show, status: :created, location: @entry }
+        format.json { render json: Spark.new(current_user), status: :ok }
       else
         format.html { render :new }
         format.json { render json: @entry.errors, status: :unprocessable_entity }

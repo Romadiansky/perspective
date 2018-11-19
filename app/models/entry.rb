@@ -15,7 +15,7 @@
 
 class Entry < ApplicationRecord
 
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :prompts
   state_machine :state, initial: :incomplete do
     event :finish do
