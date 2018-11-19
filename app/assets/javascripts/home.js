@@ -18,8 +18,9 @@ $(document).ready(function() {
   function add_line() {
     // container.appendChild(answer.content.cloneNode(true));
     $('#superbutton').before(answer.content.cloneNode(true));
-    line = $(container).last();
-    $('.kittens')[0].focus();
+    // line = $(container).last();
+    let lines = $('.grateful-input');
+    lines[lines.length-1].focus();
   }
 
 // get focus working
