@@ -9,9 +9,15 @@
 
 .candle-button {
   background: linear-gradient(60deg,#ef5350,#f09643);
-  box-shadow: 0 5px 20px 0 rgba(0,0,0,.2), 0 13px 24px -11px rgba(244,67,54,.6);
+  box-shadow: 0 5px 20px 0 rgba(0,0,0,.2), 0 13px 24px -11px rgba(244,67,54,.6) !important;
+  background-color: #f09643 !important;
+  border-color: #f09643 !important;
 }
 
+.form-control{
+ /* background-image: linear-gradient(60deg,#ef5350,#f09643) !important; <- use if you can make it an underline*/
+  background-image: linear-gradient(0deg,#f09643 2px,rgba(156,39,176,0) 0),linear-gradient(0deg,#d2d2d2 1px,hsla(0,0%,82%,0) 0) !important;
+}
 
 /*-----------------------------------*\
 $ANIMATIONS
