@@ -4,24 +4,28 @@ class Spark
   end
 
   def next_entry
-    payload = Hash.new
     if @user
-      entry = @user.entries.find_or_create_by(state: 'incomplete')
+      entry = @user.entries.find_by(state: 'incomplete')
+      if entry == {}
+        next_entry.new_entry
+      end
     else
-      entry = Entry.create!
+        next_entry.new_entry
     end
-    prompt1 = entry.prompts.new
-    prompt1.question_id = 1
-    prompt1.save
-    payload[:id] = Entry.new
-    prompt2 = entry.prompts.new
-    prompt2.question_id = 2
-    prompt2.save
-    payload[:id] = entry.id
-    payload[:prompts] = []
-    payload[:prompts] << prompt1.id
-    payload[:prompts] << prompt2.id
-    payload
   end
 
+  def new_entry
+    payload = Hash.new
+    entry = Entry.create!
+    payload[:id] = entry.id
+    payload[:prompts] = []
+    puts "---------------"
+    1.upto(5) do |n|
+      prompt = entry.prompts.new
+      prompt.question_id = n
+      prompt.save
+      payload[:prompts] << prompt.id
+    end
+    payload
+  end
 end
