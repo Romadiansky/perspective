@@ -34,7 +34,7 @@ class EntriesController < ApplicationController
     respond_to do |format|
       if @entry.save
         format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
-        format.json { render json: Spark.new(current_user), status: :ok }
+        format.json { render json: Spark.new(current_user).process_entries(), status: :ok }
       else
         format.html { render :new }
         format.json { render json: @entry.errors, status: :unprocessable_entity }
