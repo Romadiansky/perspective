@@ -1,5 +1,18 @@
 $(document).ready(function() {
-
+//prompts_arr is filled with placeholder data; to be filled with db data
+  let prompts_list = [
+    {
+      title: "How are you feeling right now?",
+      subtitle: "Pick the closest one",
+      interface_name: "text_list"
+      // interface_name: "moodpicker"
+    },
+    {
+      title: "What did you do today?",
+      subtitle: "Tell the all-seeing eye",
+      interface_name: "text_list"
+    }
+  ];
   let answer = document.querySelector("#answer-template");
   let container = document.querySelector("#answer-container");
   let button = document.querySelector("#button-template");
