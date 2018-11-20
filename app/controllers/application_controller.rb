@@ -1,3 +1,4 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  # NOTE: THIS MUST BE RE-ENABLED FOR PRODUCTION
+  # protect_from_forgery with: :exception
 end
