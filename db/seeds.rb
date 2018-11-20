@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Question.destroy_all
-Question.create(id: 1, body: "What kind of mood are you in?", watson: false)
-Question.create(id: 2, body: "What did you do today?", watson: true)
-Question.create(id: 3, body: "Who did your day involve?", watson: false)
-Question.create(id: 4, body: "Describe your day", watson: false)
-Question.create(id: 5, body: "What are you grateful for?", watson: false)
-Question.create(id: 6, body: "Anything else?", watson: true)
+Question.create(id: 1, body: "What kind of mood are you in?", watson: false, interface_name: "textarea")
+Question.create(id: 2, body: "What did you do today?", watson: true, interface_name: "textarea")
+Question.create(id: 3, body: "Who did your day involve?", watson: false, interface_name: "textarea")
+Question.create(id: 4, body: "Describe your day", watson: false, interface_name: "textarea")
+Question.create(id: 5, body: "What are you grateful for?", watson: false, interface_name: "textarea")
+Question.create(id: 6, body: "Anything else?", watson: true, interface_name: "textarea")
