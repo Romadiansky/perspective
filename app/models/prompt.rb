@@ -17,6 +17,7 @@
 class Prompt < ApplicationRecord
 
   belongs_to :entry
+  belongs_to :question
   has_many :answers
 
 end

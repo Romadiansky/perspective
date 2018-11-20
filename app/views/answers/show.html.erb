@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 
   <tbody>
-    <% @prompts.each do |prompt| %>
+    <%= @prompt %><br>
+    <% @answers.each do |answer| %>
       <tr>
-        <td> <%= link_to prompt.question.body, entry_answers_path(:entry_id => prompt.id) %> </td>
+        <td> <%= answer.body %> </td>
       </tr>
       <br>
     <% end %>

@@ -31,6 +31,8 @@ gem "bootstrap", ">= 4.1.2"
 # Helps with authentication
 gem 'devise'
 
+gem 'state_machines' # https://github.com/state-machines/state_machines
+gem 'state_machines-activerecord'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
