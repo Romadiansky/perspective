@@ -30,8 +30,10 @@ gem 'jquery-rails'
 gem "bootstrap", ">= 4.1.2"
 # Helps with authentication
 gem 'devise'
+
 gem 'state_machines' # https://github.com/state-machines/state_machines
 gem 'state_machines-activerecord'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -39,6 +41,11 @@ gem 'state_machines-activerecord'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+group :production do
+  # Shows you your environment inside console
+  gem 'marco-polo'
+end
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -51,6 +58,8 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'pry-rails'
+  # Shows you your environment inside console
+  gem 'marco-polo'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
@@ -58,6 +67,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate'
 end
+
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

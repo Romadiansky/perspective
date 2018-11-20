@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-    root to: 'home#index'
+
+  get 'cards', to: 'home#cards'
+  root to: 'home#index'
 end
+

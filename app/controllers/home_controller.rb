@@ -4,4 +4,7 @@ class HomeController < ApplicationController
     @entry = current_user.entries.first
   end
 
+  def cards
+  end
+
 end
