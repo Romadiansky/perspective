@@ -61,6 +61,8 @@ $(document).ready(function() {
 
   function show_next() {
 
+    // if prompts_list
+
   }
   //collect_answers();
 
