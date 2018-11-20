@@ -17,6 +17,8 @@ class Spark
   def new_entry
     # Creates a new Entry database entry linked to @user with six Prompt db Entries,
     # each with a question_id value 1 - 6
+    # payload is a hash with :id = entry.id and :prompts array of prompt ids
+    # e.g.: Spark.new(@user).process_entries(@jsonstring)
     payload = Hash.new
     entry = @user.entries.create!
     payload[:id] = entry.id
