@@ -1,6 +1,6 @@
 class Spark
   def initialize (user = nil)
-    @user = user
+    @user = User.first
   end
 
   def next_entry
@@ -34,9 +34,8 @@ class Spark
     # parses a JSON object (with a key answers that is an array of answers into the database)
     # the answers array should be populated with objects that each have a "question" value 1-6
     # and a body string that gets entered in the database
-    parsed = JSON.parse(jason)
     promptlist = new_entry[:prompts]
-    enter_entries(*promptlist, parsed)
+    enter_entries(*promptlist, jason)
   end
 
   def enter_entries(a, b, c, d, e, f, answer_object)
