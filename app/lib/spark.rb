@@ -63,7 +63,7 @@ class Spark
           prompt = Prompt.find(f.to_i)
           answerbuilder = prompt.answers.create!(prompt_id: f.to_i)
         else
-          puts "ERRRRRRRROR"
+          puts "================= ERROR ================="
       end
       answerbuilder.body = answer["body"]
       answerbuilder.save
