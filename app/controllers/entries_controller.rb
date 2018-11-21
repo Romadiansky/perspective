@@ -30,23 +30,23 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.json
   def create
-    if !params["answers"]
-      @entry = current_user.entries.new(entry_params)
-    else
+    if params["answers"]
       Spark.new(current_user).process_entries(params)
+    else
+      @entry = current_user.entries.new(entry_params)
     # respond_to do |format|
     #   if @entry.save
     #     format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
     #     format.json { render json: Spark.new(current_user).process_entries(params), status: :ok }
     # # @entry = current_user.entries.new(entry_params)
-    end
-    respond_to do |format|
-      if @entry.save
-        format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
-        format.json { render json: Spark.new(current_user).process_entries(params), status: :ok }
-      else
-        format.html { render :new }
-        format.json { render json: @entry.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @entry.save
+          format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
+          format.json { render json: @entry, status: :ok }
+        else
+          format.html { render :new }
+          format.json { render json: @entry.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
