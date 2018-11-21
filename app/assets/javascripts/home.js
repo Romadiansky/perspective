@@ -115,17 +115,11 @@ $(document).ready(function() {
     console.log(llama_entry);
   }
 
-  container.appendChild(button.content.cloneNode(true));
-
   load_prompt(current_prompt_index);
 
   $('.submit-button').on('click', function() {
     finish_prompt();
   })
-
-// talk about how mobile works
-// convert from templates to interpolated string functions
-
 
 // function onSubmit( form ){
 //   var data = JSON.stringify( $(form).serializeArray() ); //  <-----------
