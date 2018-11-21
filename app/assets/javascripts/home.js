@@ -7,8 +7,8 @@ $(document).ready(function() {
   let prompts_list = [
     {
       id: 1,
-      title: "How are you feeling right now?",
-      subtitle: "Pick the closest one",
+      title: "Tell me 3 things you're grateful for right now",
+      subtitle: "You don't have to think big. It's the little things...",
       interface_name: "text_list"
       // interface_name: "moodpicker"
     },
@@ -20,8 +20,8 @@ $(document).ready(function() {
     },
     {
       id: 3,
-      title: "What did you do today blob?",
-      subtitle: "Tell the all-seeing eye now",
+      title: "Write Stuff!",
+      subtitle: "Anything goes",
       interface_name: "textarea"
     }
   ];
@@ -39,7 +39,8 @@ $(document).ready(function() {
 
       this.keypress_handler = (e) => {
         let keycode = (e.keyCode ? e.keyCode : e.which);
-        if (keycode === 13) {
+        let lines = $('.answer-input');
+        if ((keycode === 13) && ($(lines[lines.length-1]).val() != "")) {
           this.add_line();
         }
       }
@@ -63,7 +64,9 @@ $(document).ready(function() {
         let answer_object = {};
         answer_object.question = this.question_id;
         answer_object.body = line.value;
-        answers.push(answer_object);
+        if (line.value.length > 0){
+          answers.push(answer_object);
+        }
       }
       return answers
     }
@@ -76,15 +79,15 @@ $(document).ready(function() {
 
   class Prompt_handler_textarea {
     constructor(question_id) {
-
       this.question_id = question_id
       let new_textbox = textbox.content.cloneNode(true);
       input_container.appendChild(new_textbox);
+      $('.textbox-input').focus();
     }
 
     collect_answers() {
       let body = $('.textbox-input');
-      return [ body.val() ]
+      return [{question: this.question_id, body: body.val()}]
     }
 
     cleanup() {
@@ -94,6 +97,8 @@ $(document).ready(function() {
 
   function load_prompt(index) {
     let prompt_info = prompts_list[index];
+    $('.question').html(prompt_info.title);
+    $('.advice').html(prompt_info.subtitle);
     if (prompt_info.interface_name === "text_list") {
       current_prompt_handler = new Prompt_handler_text_lines(prompt_info.id)
     }
@@ -109,17 +114,16 @@ $(document).ready(function() {
 
     if (current_prompt_index < prompts_list.length) {
       load_prompt(current_prompt_index);
-    } else {
-      // Submit!!
     }
-    console.log(llama_entry);
+    if (current_prompt_index === prompts_list.length) {
+      console.log(llama_entry);
+      // $.post('/entry', {entries: llama_entry});
+    }
   }
 
   load_prompt(current_prompt_index);
 
-  $('.submit-button').on('click', function() {
-    finish_prompt();
-  })
+  $('.submit-button').click(finish_prompt);
 
 // function onSubmit( form ){
 //   var data = JSON.stringify( $(form).serializeArray() ); //  <-----------
@@ -127,6 +131,14 @@ $(document).ready(function() {
 //   console.log( data );
 //   return false; //don't submit
 // }
+
+// to delete text_lines that are added
+// not add empty lines
+// not submit empty entries
+// TODO don't allow skipping by pressing enter
+// format the textarea json properly
+// textarea needs to be bigger
+// update the questions
 
 });
 
