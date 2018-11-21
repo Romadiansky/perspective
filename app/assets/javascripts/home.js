@@ -100,34 +100,12 @@ $(document).ready(function() {
 
     console.log(llama_entry);
   }
-  // TEMPORARY - REMOVE ME
-  // temp1 = new Prompt_handler_text_lines(5)
 
-
-  //collects data from question and returns JSON
-  // function collect_answers() {
-
-  //   let collected_entry = {
-  //     answers: []
-  //   };
-
-  //   let lines = $('.answer-input');
-  //   for (let line of lines) {
-  //     let answer_object = {};
-  //     answer_object.question = 5;
-  //     answer_object.body = line.value;
-  //     collected_entry.answers.push(answer_object);
-  //   }
-  //   entry_json = JSON.stringify(collected_entry);
-  //   console.log(entry_json);
-  // }
 
   $('.submit-button').on('click', function() {
     finish_prompt();
-    // collect_answers();
   })
 
-  //collect_answers();
 
 // talk about how mobile works
 // convert from templates to interpolated string functions
