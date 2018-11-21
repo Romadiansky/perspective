@@ -6,6 +6,14 @@
         <td> <%= link_to prompt.question.body, entry_answers_path(:entry_id => prompt.id) %> </td>
       </tr>
       <br>
+        <% prompt.answers.each do |answer| %>
+      <tr>
+        <td></td>
+        <td> <%= answer.body %> </td>
+      </tr>
+      <br>
+    <% end %>
+      <br>
     <% end %>
   </tbody>
 
