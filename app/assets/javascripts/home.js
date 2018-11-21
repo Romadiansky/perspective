@@ -12,17 +12,14 @@ $(document).ready(function() {
       this.question_id = question_id
       this.add_line();
 
-      $(document).on('keypress', (e) => {
-        // TODO: THIS WILL PROBABLY BREAK BECAUSE THE
-        // EVENT HANDLER WILL PERSIST AFTER THIS PROMPT
-        // HANDLER HAS BEEN REPLACED.  Need to find a way
-        // to remove this handler
+      this.keypress_handler = (e) => {
         let keycode = (e.keyCode ? e.keyCode : e.which);
         if (keycode === 13) {
           this.add_line();
         }
+      }
 
-      });
+      $(document).on('keypress', this.keypress_handler);
     }
 
     //adds extra input line after a user hits 'enter' and focuses on the new line
@@ -48,6 +45,7 @@ $(document).ready(function() {
     }
 
     cleanup() {
+      $(document).off('keypress', this.keypress_handler);
       $("#input-container").empty();
     }
   };
@@ -55,22 +53,55 @@ $(document).ready(function() {
   //prompts_arr is filled with placeholder data; to be filled with db data
   let prompts_list = [
     {
+      id: 1,
       title: "How are you feeling right now?",
       subtitle: "Pick the closest one",
       interface_name: "text_list"
       // interface_name: "moodpicker"
     },
     {
+      id: 2,
       title: "What did you do today?",
       subtitle: "Tell the all-seeing eye",
       interface_name: "text_list"
     }
   ];
 
-  container.appendChild(button.content.cloneNode(true));
+  let current_prompt_handler;
 
+  function load_prompt(index) {
+
+    let prompt_info = prompts_list[index];
+    if (prompt_info.interface_name === "text_list") {
+      current_prompt_handler = new Prompt_handler_text_lines(prompt_info.id)
+    }
+
+  }
+
+  container.appendChild(button.content.cloneNode(true));
+  let current_prompt_index = 0;
+  load_prompt(current_prompt_index);
+
+  let llama_entry = {
+    answers: []
+  };
+
+  function finish_prompt() {
+
+    llama_entry.answers = llama_entry.answers.concat(current_prompt_handler.collect_answers());
+    current_prompt_handler.cleanup();
+    current_prompt_index ++;
+
+    if (current_prompt_index < prompts_list.length) {
+      load_prompt(current_prompt_index);
+    } else {
+      // Submit!!
+    }
+
+    console.log(llama_entry);
+  }
   // TEMPORARY - REMOVE ME
-  temp1 = new Prompt_handler_text_lines(5)
+  // temp1 = new Prompt_handler_text_lines(5)
 
 
   //collects data from question and returns JSON
@@ -92,15 +123,10 @@ $(document).ready(function() {
   // }
 
   $('.submit-button').on('click', function() {
-    temp1.cleanup();
+    finish_prompt();
     // collect_answers();
   })
 
-  function show_next() {
-
-    // if prompts_list
-
-  }
   //collect_answers();
 
 // talk about how mobile works
