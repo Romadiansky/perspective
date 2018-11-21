@@ -1,10 +1,35 @@
 $(document).ready(function() {
-
-
   let answer = document.querySelector("#answer-template");
+  let textbox = document.querySelector("#textbox-template");
   let container = document.querySelector("#answer-container");
   let button = document.querySelector("#button-template");
   let input_container = document.querySelector("#input-container");
+  let prompts_list = [
+    {
+      id: 1,
+      title: "How are you feeling right now?",
+      subtitle: "Pick the closest one",
+      interface_name: "text_list"
+      // interface_name: "moodpicker"
+    },
+    {
+      id: 2,
+      title: "What did you do today?",
+      subtitle: "Tell the all-seeing eye",
+      interface_name: "text_list"
+    },
+    {
+      id: 3,
+      title: "What did you do today blob?",
+      subtitle: "Tell the all-seeing eye now",
+      interface_name: "textarea"
+    }
+  ];
+  let llama_entry = {
+    answers: []
+  };
+  let current_prompt_handler;
+  let current_prompt_index = 0;
 
   class Prompt_handler_text_lines {
     constructor(question_id) {
@@ -18,7 +43,6 @@ $(document).ready(function() {
           this.add_line();
         }
       }
-
       $(document).on('keypress', this.keypress_handler);
     }
 
@@ -50,44 +74,35 @@ $(document).ready(function() {
     }
   };
 
-  //prompts_arr is filled with placeholder data; to be filled with db data
-  let prompts_list = [
-    {
-      id: 1,
-      title: "How are you feeling right now?",
-      subtitle: "Pick the closest one",
-      interface_name: "text_list"
-      // interface_name: "moodpicker"
-    },
-    {
-      id: 2,
-      title: "What did you do today?",
-      subtitle: "Tell the all-seeing eye",
-      interface_name: "text_list"
-    }
-  ];
+  class Prompt_handler_textarea {
+    constructor(question_id) {
 
-  let current_prompt_handler;
+      this.question_id = question_id
+      let new_textbox = textbox.content.cloneNode(true);
+      input_container.appendChild(new_textbox);
+    }
+
+    collect_answers() {
+      let body = $('.textbox-input');
+      return [ body.val() ]
+    }
+
+    cleanup() {
+      $("#input-container").empty();
+    }
+  };
 
   function load_prompt(index) {
-
     let prompt_info = prompts_list[index];
     if (prompt_info.interface_name === "text_list") {
       current_prompt_handler = new Prompt_handler_text_lines(prompt_info.id)
     }
-
+    if (prompt_info.interface_name === "textarea") {
+      current_prompt_handler = new Prompt_handler_textarea(prompt_info.id)
+    }
   }
 
-  container.appendChild(button.content.cloneNode(true));
-  let current_prompt_index = 0;
-  load_prompt(current_prompt_index);
-
-  let llama_entry = {
-    answers: []
-  };
-
   function finish_prompt() {
-
     llama_entry.answers = llama_entry.answers.concat(current_prompt_handler.collect_answers());
     current_prompt_handler.cleanup();
     current_prompt_index ++;
@@ -97,15 +112,16 @@ $(document).ready(function() {
     } else {
       // Submit!!
     }
-
     console.log(llama_entry);
   }
 
+  container.appendChild(button.content.cloneNode(true));
+
+  load_prompt(current_prompt_index);
 
   $('.submit-button').on('click', function() {
     finish_prompt();
   })
-
 
 // talk about how mobile works
 // convert from templates to interpolated string functions
