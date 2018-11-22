@@ -1,19 +1,21 @@
-<div class="subscribe-line subscribe-line-image" style="background-image: url('https://images.unsplash.com/photo-1517784120905-d9f8d5aced1a?ixlib=rb-0.3.5&s=fd6eae864a8bc5f633a1673bbc14cc75&auto=format&fit=crop&w=2250&q=80');">
+<div class="subscribe-line subscribe-line-image full-screen penguins" data-photo="penguins">
   <div class="container">
     <div class="row">
       <div class="col-md-8 ml-auto mr-auto">
         <div class="text-center">
-          <h3 class="colour-title">Tell me 3 things you're grateful for right now</h3>
-          <p class="description">
-            You don't have to think big. It's the little things...
-          </p>
+          <h3 class="colour-title question"></h3>
+          <p class="description advice"></p>
         </div>
 
         <div class="card card-raised card-form-horizontal">
-          <div class="card-body pr-5">
-            <form id="answer-container" method="" action="">
-              <div id="input-container"></div>
-            </form>
+          <div class="card-body pr-5 answer-container">
+            <div id="input-container"></div>
+            <div class="row justify-content-end">
+              <div class="col-1 col-sm-6 col-md-7 col-lg-8"></div>
+              <div class="col-11 col-sm-6 col-md-5 col-lg-4 mt-2">
+                <button type="button" class="btn btn-primary btn-block submit-button">DONE</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -21,23 +23,13 @@
   </div>
 </div>
 
-
+<!--
 <i class="fal fa-acorn fa-2x colour-title"></i>
 <i class="fal fa-seedling fa-2x colour-title"></i>
-
-
-<template id="button-template">
-  <div id="superbutton" class="row justify-content-end">
-    <div class="col-8"></div>
-    <div class="col-4 mt-2">
-      <button type="button" class="btn btn-primary btn-block candle-button submit-button">DONE</button>
-    </div>
-  </div>
-</template>
+-->
 
 <template id="answer-template">
-
-  <div class="row kittens">
+  <div class="row">
     <div class="col-12">
       <span class="bmd-form-group"><div class="input-group">
         <div class="input-group-prepend">
@@ -49,5 +41,21 @@
       </div></span>
     </div>
   </div>
+</template>
 
+<template id="textbox-template">
+  <div class="row">
+    <div class="col-12">
+      <span class="bmd-form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+<!--               <i class="fal fa-heart-circle colour-title"></i> -->
+            </span>
+          </div>
+          <textarea rows="5" placeholder="Kitty why you so fuzzy" class="form-control textbox-input"></textarea>
+        </div>
+      </span>
+    </div>
+  </div>
 </template>
