@@ -18,7 +18,7 @@ class HomeController < ApplicationController
       @moodcount = {}
       @moods = ["pensive", "curious", "serene", "grateful", "love", "happy", "anxious", "scared", "angry", "bored", "sad", "remorseful"]
       @moods.each do |mood|
-        @moodcount[mood] = Answer.where(body: mood).where("created_at > ?", 2.days.ago).group_by{ |answer| answer.prompt.entry.user_id }.count
+        @moodcount[mood] = Answer.where(body: mood).where("created_at > ?", 2.days.ago).select("user_id").distinct.count
       end
       @moodcount
     end
