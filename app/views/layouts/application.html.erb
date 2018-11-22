@@ -12,17 +12,17 @@
 </head>
 
 <body>
+
+  <%= render :partial => "layouts/nav" %>
+
   <% if notice %>
     <p class="notice"><%= notice %></p>
   <% end %>
   <% if alert %>
     <p class="alert"><%= alert %></p>
   <% end %>
+
   <%= yield %>
-  <br>
-  <%= link_to "[Sign In]", new_user_session_path %> &nbsp
-  <%= link_to "[Sign Out]", destroy_user_session_path, method: :delete %> &nbsp
-  <%= link_to "[Register]", new_user_registration_path %>
 
 </body>
 </html>
