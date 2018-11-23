@@ -1,21 +1,21 @@
-<div class="subscribe-line subscribe-line-image full-screen penguins" data-photo="penguins">
+<div class="full-screen penguins" data-photo="penguins">
   <br><br><br><br>
 
-  <div class="container">
+  <div class="container" style="opacity: 0;">
     <div class="row">
       <div class="col-md-8 ml-auto mr-auto">
         <div class="text-center">
           <h3 class="colour-title question"></h3>
-          <p class="description advice"></p>
+          <p class="description advice text-white"></p>
         </div>
 
-        <div class="card card-raised card-form-horizontal">
+        <div class="card card-raised card-form-horizontal mt-4">
           <div class="card-body pr-5 answer-container">
             <div id="input-container"></div>
             <div class="row justify-content-end">
               <div class="col-1 col-sm-6 col-md-7 col-lg-8"></div>
               <div class="col-11 col-sm-6 col-md-5 col-lg-4 mt-2">
-                <button type="button" class="btn btn-primary btn-block llama submit-button">DONE</button>
+                <button type="button" class="btn btn-primary btn-block btn-orange submit-button">DONE</button>
               </div>
             </div>
           </div>
@@ -33,14 +33,16 @@
 <template id="answer-template">
   <div class="row">
     <div class="col-12">
-      <span class="bmd-form-group"><div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text">
-            <i class="fal fa-heart-circle colour-title"></i>
-          </span>
+      <span class="bmd-form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fal fa-heart-circle icon colour-title"></i>
+            </span>
+          </div>
+          <input type="text" value="" placeholder="Kitty was extra cuddly tonight" class="form-control answer-input">
         </div>
-        <input type="text" value="" placeholder="Kitty was extra cuddly tonight" class="form-control answer-input">
-      </div></span>
+      </span>
     </div>
   </div>
 </template>
@@ -52,10 +54,41 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text">
-<!--               <i class="fal fa-heart-circle colour-title"></i> -->
+              <!-- <i class="fal fa-heart-circle icon colour-title"></i> -->
             </span>
           </div>
           <textarea rows="5" placeholder="Kitty why you so fuzzy" class="form-control textbox-input"></textarea>
+        </div>
+      </span>
+    </div>
+  </div>
+</template>
+
+<template id="mood-template">
+  <div class="row">
+    <div class="col-12">
+      <span class="bmd-form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <!-- <i class="fal fa-heart-circle icon colour-title"></i> -->
+            </span>
+          </div>
+          <select class="form-control mood-input">
+            <option></option>
+            <option value="Curious">Curious</option>
+            <option value="Happy">Happy</option>
+            <option value="Serene">Serene</option>
+            <option value="Grateful">Grateful</option>
+            <option value="Scared">Scared</option>
+            <option value="Anxious">Anxious</option>
+            <option value="Angry">Angry</option>
+            <option value="Sad">Sad</option>
+            <option value="Remorseful">Remorseful</option>
+            <option value="Bored">Bored</option>
+            <option value="Thoughtful">Thoughtful</option>
+            <option value="Love">Love</option>
+          </select>
         </div>
       </span>
     </div>

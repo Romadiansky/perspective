@@ -1,27 +1,44 @@
 $(document).ready(function() {
   let answer = document.querySelector("#answer-template");
   let textbox = document.querySelector("#textbox-template");
+  let mood = document.querySelector("#mood-template");
   let container = document.querySelector("#answer-container");
-  let button = document.querySelector("#button-template");
   let input_container = document.querySelector("#input-container");
   let prompts_list = [
     {
       id: 1,
-      title: "Tell me 3 things you're grateful for right now",
-      subtitle: "You don't have to think big. It's the little things...",
-      interface_name: "text_list"
-      // interface_name: "moodpicker"
+      title: "What's your current mood?",
+      subtitle: "Take a moment to really think about you how feel.",
+      interface_name: "mood"
     },
     {
       id: 2,
       title: "What did you do today?",
-      subtitle: "Tell the all-seeing eye",
+      subtitle: "I like lists. A short list will do.",
       interface_name: "text_list"
     },
     {
       id: 3,
-      title: "Write Stuff!",
-      subtitle: "Anything goes",
+      title: "Who were the people in your life today?",
+      subtitle: "Remember: I love lists. ;)",
+      interface_name: "text_list"
+    },
+    {
+      id: 4,
+      title: "Give me three words to describe your day.",
+      subtitle: "For example, my day was: chilly, hopeful, and analytical.",
+      interface_name: "text_list"
+    },
+    {
+      id: 5,
+      title: "Tell me three things you're grateful for right now",
+      subtitle: "You don't have to think big. It's the little things...",
+      interface_name: "text_list"
+    },
+    {
+      id: 6,
+      title: "Want to say more?",
+      subtitle: "I want to hear it.",
       interface_name: "textarea"
     }
   ];
@@ -95,6 +112,22 @@ $(document).ready(function() {
     }
   };
 
+  class Prompt_handler_mood {
+    constructor(question_id) {
+      this.question_id = question_id
+      input_container.appendChild(mood.content.cloneNode(true));
+    }
+
+    collect_answers() {
+      let option = $('.mood-input');
+      return [{question: this.question_id, body: option.val()}]
+    }
+
+    cleanup() {
+      $("#input-container").empty();
+    }
+  };
+
   function load_prompt(index) {
     let prompt_info = prompts_list[index];
     $('.question').html(prompt_info.title);
@@ -105,6 +138,9 @@ $(document).ready(function() {
     if (prompt_info.interface_name === "textarea") {
       current_prompt_handler = new Prompt_handler_textarea(prompt_info.id)
     }
+    if (prompt_info.interface_name === "mood") {
+      current_prompt_handler = new Prompt_handler_mood(prompt_info.id)
+    }
   }
 
   function finish_prompt() {
@@ -113,7 +149,10 @@ $(document).ready(function() {
     current_prompt_index ++;
 
     if (current_prompt_index < prompts_list.length) {
-      load_prompt(current_prompt_index);
+      $('.container').animateCss('slideOutUpBig', function(e) {
+        load_prompt(current_prompt_index);
+        $('.container').animateCss('slideInUpBig');
+      });
     }
     if (current_prompt_index === prompts_list.length) {
       console.log(llama_entry);
@@ -121,9 +160,23 @@ $(document).ready(function() {
     }
   }
 
+  function changeBackground(){
+    let options = ['penguins', 'butterfly', 'doggo'];
+    let newPhoto = options[Math.floor(Math.random() * options.length)];
+    let fullScreen = $('.full-screen');
+    fullScreen.removeClass(fullScreen.data('photo')).addClass(newPhoto).data('photo', newPhoto);
+  }
+
+  $('.container').animateCss('fadeInDown', function(e) {
+    // opacity has to be set to 0 in HTML for the illusion to work
+    $('.container').css('opacity', '1');
+  });
+
   load_prompt(current_prompt_index);
 
   $('.submit-button').click(finish_prompt);
+
+  let slideshow = setInterval(changeBackground, 30000);
 
 // function onSubmit( form ){
 //   var data = JSON.stringify( $(form).serializeArray() ); //  <-----------
@@ -142,3 +195,25 @@ $(document).ready(function() {
 
 });
 
+$.fn.extend({
+  animateCss: function(animationName, callback) {
+    var animationEnd = (function(el) {
+      var animations = {
+        animation: 'animationend',
+        OAnimation: 'oAnimationEnd',
+        MozAnimation: 'mozAnimationEnd',
+        WebkitAnimation: 'webkitAnimationEnd',
+      };
+      for (var t in animations) {
+        if (el.style[t] !== undefined) {
+          return animations[t];
+        }
+      }
+    })(document.createElement('div'));
+    this.addClass('animated ' + animationName).one(animationEnd, function() {
+      $(this).removeClass('animated ' + animationName);
+      if (typeof callback === 'function') callback();
+    });
+    return this;
+  },
+});
