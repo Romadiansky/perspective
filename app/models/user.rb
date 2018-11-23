@@ -27,5 +27,6 @@ class User < ApplicationRecord
 
   has_many :entries
   has_many :goals
+  has_many :analyses
 
 end
