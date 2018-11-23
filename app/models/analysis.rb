@@ -8,7 +8,6 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  entry_id      :bigint(8)
-#  question_id   :bigint(8)
 #  user_id       :bigint(8)
 #
 # Indexes

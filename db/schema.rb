@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2018_11_23_221533) do
   create_table "analyses", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "entry_id"
-    t.bigint "question_id"
     t.jsonb "user_input"
     t.jsonb "watson_output"
     t.datetime "created_at", null: false
