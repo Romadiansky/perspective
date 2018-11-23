@@ -16,7 +16,7 @@ class HomeController < ApplicationController
 
     def mood_counter
       @moodcount = {}
-      @moods = ["pensive", "curious", "serene", "grateful", "love", "happy", "anxious", "scared", "angry", "bored", "sad", "remorseful"]
+      @moods = ["Pensive", "Curious", "Aerene", "Grateful", "Love", "Happy", "Anxious", "Scared", "Angry", "Bored", "Sad", "Remorseful"]
       @moods.each do |mood|
         @moodcount[mood] = Answer.where(body: mood).where("created_at > ?", 2.days.ago).select("user_id").distinct.count
       end
