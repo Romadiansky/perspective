@@ -156,7 +156,7 @@ $(document).ready(function() {
     }
     if (current_prompt_index === prompts_list.length) {
       console.log(llama_entry);
-      // $.post('/entry', {entries: llama_entry});
+      $.post('/entries', {entries: llama_entry});
     }
   }
 
@@ -185,13 +185,15 @@ $(document).ready(function() {
 //   return false; //don't submit
 // }
 
+
+// TODO //
+// - intro
+// - outtro
+// - "successfull "
+//
+//
 // to delete text_lines that are added
-// not add empty lines
-// not submit empty entries
 // TODO don't allow skipping by pressing enter
-// format the textarea json properly
-// textarea needs to be bigger
-// update the questions
 
 });
 

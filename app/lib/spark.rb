@@ -1,6 +1,7 @@
 class Spark
   def initialize (user = nil)
     if !user
+      # should we be setting @user to the last user if there isn't one logged in?
       @user = User.last
     else
       @user = user
@@ -46,6 +47,7 @@ class Spark
     # takes 6 prompt id strings (a..f) and a JSON object and inserts
     # all answers from the object (described in process_entries) to the database.
     answer_object["answers"].each do |answer|
+      puts answer.inspect
       case answer["question"]
         when 1
           prompt = Prompt.find(a.to_i)
