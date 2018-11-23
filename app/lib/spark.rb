@@ -1,6 +1,10 @@
 class Spark
   def initialize (user = nil)
-    @user = User.first
+    if !user
+      @user = User.last
+    else
+      @user = user
+    end
   end
 
   def next_entry
@@ -65,6 +69,7 @@ class Spark
           puts "================= ERROR ================="
       end
       answerbuilder.body = answer["body"]
+      answerbuilder.user_id = @user.id
       answerbuilder.save
     end
   end
