@@ -47,30 +47,29 @@ class Spark
     # takes 6 prompt id strings (a..f) and a JSON object and inserts
     # all answers from the object (described in process_entries) to the database.
     answer_object["answers"].each do |answer|
-      puts answer.inspect
-      case answer["question"]
-        when 1
+      case answer.second["question"]
+        when "1"
           prompt = Prompt.find(a.to_i)
           answerbuilder = prompt.answers.create!(prompt_id: a.to_i)
-        when 2
+        when "2"
           prompt = Prompt.find(b.to_i)
           answerbuilder = prompt.answers.create!(prompt_id: b.to_i)
-        when 3
+        when "3"
           prompt = Prompt.find(c.to_i)
           answerbuilder = prompt.answers.create!(prompt_id: c.to_i)
-        when 4
+        when "4"
           prompt = Prompt.find(d.to_i)
           answerbuilder = prompt.answers.create!(prompt_id: d.to_i)
-        when 5
+        when "5"
           prompt = Prompt.find(e.to_i)
           answerbuilder = prompt.answers.create!(prompt_id: e.to_i)
-        when 6
+        when "6"
           prompt = Prompt.find(f.to_i)
           answerbuilder = prompt.answers.create!(prompt_id: f.to_i)
         else
           puts "================= ERROR ================="
       end
-      answerbuilder.body = answer["body"]
+      answerbuilder.body = answer.second["body"]
       answerbuilder.user_id = @user.id
       answerbuilder.save
     end
