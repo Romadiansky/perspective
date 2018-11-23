@@ -156,7 +156,7 @@ $(document).ready(function() {
     }
     if (current_prompt_index === prompts_list.length) {
       console.log(llama_entry);
-      $.post('/entries', {entries: llama_entry});
+      $.post('/entries', llama_entry);
     }
   }
 
