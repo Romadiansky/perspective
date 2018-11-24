@@ -33,7 +33,7 @@ class Dissonance
   end
 
   def self.is_dissonant?(mood, tone)
-    Dissonance.moods(mood.to_sym).include? tone
+    Dissonance.moods(mood.downcase.to_sym).include? tone
   end
 
   def self.moods(mood)

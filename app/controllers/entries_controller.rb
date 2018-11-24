@@ -38,8 +38,6 @@ class EntriesController < ApplicationController
 
       if primary_tone = Dissonance.primary_tone(entry.tone)
         entry.dissonant = Dissonance.is_dissonant?(entry.mood, primary_tone)
-      else
-        entry.dissonant = false
       end
 
       entry.save
