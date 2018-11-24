@@ -8,22 +8,22 @@ class Watson
     end
   end
 
-  def new_entry
-    # Creates a new Entry database entry linked to @user with six Prompt db Entries,
-    # each with a question_id value 1 - 6
-    # payload is a hash with :id = entry.id and :prompts array of prompt ids
-    # e.g.: Spark.new(@user).process_entries(@jsonstring)
-    payload = Hash.new
-    analysis = @user.analyses.create!
-    payload[:analysis_id] = analysis.id
-    payload[:user_id] = @user.id
-    payload[:prompts] = []
-    1.upto(6) do |n|
-      prompt = entry.prompts.create(question_id: n)
-      payload[:prompts] << prompt.id
-    end
-    payload
-  end
+  # def new_entry
+  #   # Creates a new Entry database entry linked to @user with six Prompt db Entries,
+  #   # each with a question_id value 1 - 6
+  #   # payload is a hash with :id = entry.id and :prompts array of prompt ids
+  #   # e.g.: Spark.new(@user).process_entries(@jsonstring)
+  #   payload = Hash.new
+  #   analysis = @user.analyses.create!
+  #   payload[:analysis_id] = analysis.id
+  #   payload[:user_id] = @user.id
+  #   payload[:prompts] = []
+  #   1.upto(6) do |n|
+  #     prompt = entry.prompts.create(question_id: n)
+  #     payload[:prompts] << prompt.id
+  #   end
+  #   payload
+  # end
 
   def process_entries(ids, jason)
     # parses a JSON object (with a key answers that is an array of answers into the database)
