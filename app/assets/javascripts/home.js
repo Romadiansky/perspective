@@ -154,10 +154,9 @@ $(document).ready(function() {
         $('.container').animateCss('slideInUpBig');
       });
     }
-    // >= BELOW MUST BE === IN PRODUCTION - FIX PLEASE
-    if (current_prompt_index >= prompts_list.length) {
+    if (current_prompt_index === prompts_list.length) {
       console.log(llama_entry);
-      $.post('/entries', llama_entry);
+      $.post('/entries.json', llama_entry);
     }
   }
 
@@ -178,6 +177,13 @@ $(document).ready(function() {
   $('.submit-button').click(finish_prompt);
 
   let slideshow = setInterval(changeBackground, 30000);
+
+
+//convenience function: generates valid ajax submissions (instead of the previous >= from today's line 157)
+  $('.test').click(function(e){
+    e.preventDefault();
+    $.post('/entries.json', {answers: [{body: "Happy", question: 1}, {body: "Happy", question: 2},{body: "Happy", question: 3},{body: "Happy", question: 4},{body: "Happy", question: 5},{body: "Happy", question: 6}]});
+  });
 
 // function onSubmit( form ){
 //   var data = JSON.stringify( $(form).serializeArray() ); //  <-----------
