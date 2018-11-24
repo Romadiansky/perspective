@@ -8,13 +8,13 @@ $(document).ready(function() {
     {
       id: 1,
       title: "What's your current mood?",
-      subtitle: "Take a moment to really think about you how feel.",
+      subtitle: "Take a moment and really think about how you feel.",
       interface_name: "mood"
     },
     {
       id: 2,
       title: "What did you do today?",
-      subtitle: "I like lists. A short list will do.",
+      subtitle: "I like lists. Try writing me a list.",
       interface_name: "text_list"
     },
     {
@@ -160,7 +160,7 @@ $(document).ready(function() {
     }
   }
 
-  function changeBackground(){
+  function changeBackground() {
     let options = ['penguins', 'butterfly', 'doggo'];
     let newPhoto = options[Math.floor(Math.random() * options.length)];
     let fullScreen = $('.full-screen');
@@ -185,28 +185,18 @@ $(document).ready(function() {
 //   return false; //don't submit
 // }
 
-
-// TODO //
-// - intro
-// - outtro
-// - "successfull "
-//
-//
-// to delete text_lines that are added
-// TODO don't allow skipping by pressing enter
-
 });
 
 $.fn.extend({
   animateCss: function(animationName, callback) {
-    var animationEnd = (function(el) {
-      var animations = {
+    let animationEnd = (function(el) {
+      let animations = {
         animation: 'animationend',
         OAnimation: 'oAnimationEnd',
         MozAnimation: 'mozAnimationEnd',
         WebkitAnimation: 'webkitAnimationEnd',
       };
-      for (var t in animations) {
+      for (let t in animations) {
         if (el.style[t] !== undefined) {
           return animations[t];
         }
