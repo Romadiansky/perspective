@@ -59,11 +59,24 @@ class Spark
         answerbuilder.user_id = @user.id
         answerbuilder.save
         if question_number == 3
-          q3array << answerbuilder.body
+          q3array << answerbuilder.body.strip.downcase
         end
       end
     end
-
-    puts q3array
+    puts "=Q3 ARRAY ======================="
+p q3array
+    if q3array.any?
+      @q3wc = @user.word_counts.find_or_create_by(question_id: 3)
+      q3array.each do |word|
+    puts "=Q3 word ======================="
+        puts word
+        @q3wc.word_counter ||= {}
+        @q3wc.word_counter[word] ||= 0
+        puts "created"
+        @q3wc.word_counter[word] += 1
+        puts "incremented"
+      end
+      @q3wc.save
+    end
   end
 end
