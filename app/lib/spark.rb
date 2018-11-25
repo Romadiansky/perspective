@@ -26,9 +26,9 @@ class Spark
     # e.g.: Spark.new(@user).process_entries(@jsonstring)
     payload = Hash.new
     entry = @user.entries.create!
-    payload[:id] = entry.id
+    payload[:entry] = entry
     payload[:prompts] = []
-    1.upto(6) do |n|
+    1.upto(TOTAL_QUESTIONS) do |n|
       prompt = entry.prompts.create(question_id: n)
       payload[:prompts] << prompt.id
     end
@@ -39,8 +39,10 @@ class Spark
     # parses a JSON object (with a key answers that is an array of answers into the database)
     # the answers array should be populated with objects that each have a "question" value 1-6
     # and a body string that gets entered in the database
-    promptlist = new_entry[:prompts]
-    enter_entries(*promptlist, jason)
+    # promptlist, entry = new_entry[:prompts], new_entry[:entry]
+    current_entry = new_entry
+    enter_entries(*current_entry[:prompts], jason)
+    current_entry[:entry]
   end
 
   def enter_entries(a, b, c, d, e, f, answer_object)

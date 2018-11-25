@@ -31,14 +31,22 @@ class EntriesController < ApplicationController
   # POST /entries.json
   def create
     if params["answers"]
-      Spark.new(current_user).process_entries(params)
+      entry = Spark.new(current_user).process_entries(params)
+
+      watson_text = Dissonance.prepare_for_watson(entry)
+      entry.tone = Dissonance.fetch_tone(watson_text)
+
+      if primary_tones = Dissonance.primary_tones(entry.tone)
+        entry.dissonant = Dissonance.is_dissonant?(entry.mood, primary_tones)
+      end
+
+      entry.save
+      entry.finish!
+
+      head :ok
     else
       @entry = current_user.entries.new(entry_params)
-    # respond_to do |format|
-    #   if @entry.save
-    #     format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
-    #     format.json { render json: Spark.new(current_user).process_entries(params), status: :ok }
-    # # @entry = current_user.entries.new(entry_params)
+
       respond_to do |format|
         if @entry.save
           format.html { redirect_to @entry, notice: 'Entry was successfully created.' }

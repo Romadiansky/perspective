@@ -8,13 +8,13 @@ $(document).ready(function() {
     {
       id: 1,
       title: "What's your current mood?",
-      subtitle: "Take a moment to really think about you how feel.",
+      subtitle: "Take a moment and really think about how you feel.",
       interface_name: "mood"
     },
     {
       id: 2,
       title: "What did you do today?",
-      subtitle: "I like lists. A short list will do.",
+      subtitle: "I like lists. Try writing me a list.",
       interface_name: "text_list"
     },
     {
@@ -154,14 +154,13 @@ $(document).ready(function() {
         $('.container').animateCss('slideInUpBig');
       });
     }
-    // >= BELOW MUST BE === IN PRODUCTION - FIX PLEASE
-    if (current_prompt_index >= prompts_list.length) {
+    if (current_prompt_index === prompts_list.length) {
       console.log(llama_entry);
-      $.post('/entries', llama_entry);
+      $.post('/entries.json', llama_entry);
     }
   }
 
-  function changeBackground(){
+  function changeBackground() {
     let options = ['penguins', 'butterfly', 'doggo'];
     let newPhoto = options[Math.floor(Math.random() * options.length)];
     let fullScreen = $('.full-screen');
@@ -179,6 +178,16 @@ $(document).ready(function() {
 
   let slideshow = setInterval(changeBackground, 30000);
 
+
+//convenience function: generates valid ajax submissions (instead of the previous >= from today's line 157)
+  $('.test-stable').click(function(e){
+    e.preventDefault();
+    $.post('/entries.json', {answers: [{body: "sad", question: 1}, {body: "code", question: 2},{body: "monkey", question: 3},{body: "enginering", question: 4},{body: "enginery", question: 5},{body: "I have so much work to get through, I don't know how I'm gonna even. This is a crazy payload. I don't think this is a good idea. Anxious thoughts. ERMAGAWD", question: 6}]});
+  });
+  $('.test-dissonant').click(function(e){
+    e.preventDefault();
+    $.post('/entries.json', {answers: [{body: "happy", question: 1}, {body: "code", question: 2},{body: "monkey", question: 3},{body: "enginering", question: 4},{body: "enginery", question: 5},{body: "I have so much work to get through, I don't know how I'm gonna even. This is a crazy payload. I don't think this is a good idea. Anxious thoughts. ERMAGAWD", question: 6}]});
+  });
 // function onSubmit( form ){
 //   var data = JSON.stringify( $(form).serializeArray() ); //  <-----------
 
@@ -186,28 +195,18 @@ $(document).ready(function() {
 //   return false; //don't submit
 // }
 
-
-// TODO //
-// - intro
-// - outtro
-// - "successfull "
-//
-//
-// to delete text_lines that are added
-// TODO don't allow skipping by pressing enter
-
 });
 
 $.fn.extend({
   animateCss: function(animationName, callback) {
-    var animationEnd = (function(el) {
-      var animations = {
+    let animationEnd = (function(el) {
+      let animations = {
         animation: 'animationend',
         OAnimation: 'oAnimationEnd',
         MozAnimation: 'mozAnimationEnd',
         WebkitAnimation: 'webkitAnimationEnd',
       };
-      for (var t in animations) {
+      for (let t in animations) {
         if (el.style[t] !== undefined) {
           return animations[t];
         }
