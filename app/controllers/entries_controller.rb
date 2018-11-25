@@ -33,12 +33,20 @@ class EntriesController < ApplicationController
     if params["answers"]
       entry = Spark.new(current_user).process_entries(params)
 
-      watson_text = Dissonance.prepare_for_watson(entry)
-      entry.tone = Dissonance.fetch_tone(watson_text)
+      # watson_text = Dissonance.prepare_for_watson(entry)
+      # puts "===================WATSON TEXT ========"
+      # puts watson_text
+      # entry.tone = Dissonance.fetch_tone(watson_text)
+      nlu_text = Operative.prepare_for_watson_nlu(entry)
+      puts "===================NLU TEXT ========"
+      puts nlu_text
+      operatives = Operative.fetch_operatives(nlu_text)
+      puts "===================OPERATIVES ========"
+      # puts operatives
 
-      if primary_tones = Dissonance.primary_tones(entry.tone)
-        entry.dissonant = Dissonance.is_dissonant?(entry.mood, primary_tones)
-      end
+      # if primary_tones = Dissonance.primary_tones(entry.tone)
+      #   entry.dissonant = Dissonance.is_dissonant?(entry.mood, primary_tones)
+      # end
 
       entry.save
       entry.finish!

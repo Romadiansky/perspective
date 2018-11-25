@@ -41,11 +41,11 @@ class Dissonance
     fragment.join(". ")
   end
 
-  def self.is_dissonant?(mood, tones)
-    tones.detect do |tone|
-      Dissonance.moods(mood.downcase.to_sym).include? tone
-    end ? true : false
-  end
+  # def self.is_dissonant?(mood, tones)
+  #   tones.detect do |tone|
+  #     Dissonance.moods(mood.downcase.to_sym).include? tone
+  #   end ? true : false
+  # end
 
   def self.total(user)
     entries = user.entries
