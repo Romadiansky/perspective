@@ -37,11 +37,14 @@ class EntriesController < ApplicationController
       # puts "===================WATSON TEXT ========"
       # puts watson_text
       # entry.tone = Dissonance.fetch_tone(watson_text)
-      nlu_text = Operative.prepare_for_watson_nlu(entry)
-      puts "===================NLU TEXT ========"
-      puts nlu_text
-      operatives = Operative.fetch_operatives(nlu_text)
-      puts "===================OPERATIVES ========"
+      q2_nlu_text = Operative.prepare_for_watson_nlu(entry, 2)
+      q2_operatives = Operative.fetch_operatives(q2_nlu_text)
+      puts "=========================q2 ops"
+      puts q2_operatives
+      q5_nlu_text = Operative.prepare_for_watson_nlu(entry, 5)
+      q5_operatives = Operative.fetch_operatives(q5_nlu_text)
+      puts "=========================q5 ops"
+      puts q5_operatives
       # puts operatives
 
       # if primary_tones = Dissonance.primary_tones(entry.tone)

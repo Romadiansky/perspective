@@ -7,6 +7,7 @@ class Operative
     )
 
     understanding = natural_language_understanding.analyze(
+      language: "en",
       text: text,
       features: {
         "entities" => {},
@@ -30,10 +31,10 @@ class Operative
     keywords
   end
 
-  def self.prepare_for_watson_nlu(entry)
+  def self.prepare_for_watson_nlu(entry, question_id)
     fragment = []
     entry.prompts.each do |prompt|
-      if prompt.question.id == 2 || prompt.question.id == 5
+      if prompt.question.id == question_id
         prompt.answers.each do |answer|
           fragment << answer.body
         end
