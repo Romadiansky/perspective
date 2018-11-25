@@ -180,11 +180,14 @@ $(document).ready(function() {
 
 
 //convenience function: generates valid ajax submissions (instead of the previous >= from today's line 157)
-  $('.test').click(function(e){
+  $('.test-stable').click(function(e){
+    e.preventDefault();
+    $.post('/entries.json', {answers: [{body: "sad", question: 1}, {body: "code", question: 2},{body: "monkey", question: 3},{body: "enginering", question: 4},{body: "enginery", question: 5},{body: "I have so much work to get through, I don't know how I'm gonna even. This is a crazy payload. I don't think this is a good idea. Anxious thoughts. ERMAGAWD", question: 6}]});
+  });
+  $('.test-dissonant').click(function(e){
     e.preventDefault();
     $.post('/entries.json', {answers: [{body: "happy", question: 1}, {body: "code", question: 2},{body: "monkey", question: 3},{body: "enginering", question: 4},{body: "enginery", question: 5},{body: "I have so much work to get through, I don't know how I'm gonna even. This is a crazy payload. I don't think this is a good idea. Anxious thoughts. ERMAGAWD", question: 6}]});
   });
-
 // function onSubmit( form ){
 //   var data = JSON.stringify( $(form).serializeArray() ); //  <-----------
 

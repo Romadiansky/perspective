@@ -36,8 +36,8 @@ class EntriesController < ApplicationController
       watson_text = Dissonance.prepare_for_watson(entry)
       entry.tone = Dissonance.fetch_tone(watson_text)
 
-      if primary_tone = Dissonance.primary_tone(entry.tone)
-        entry.dissonant = Dissonance.is_dissonant?(entry.mood, primary_tone)
+      if primary_tones = Dissonance.primary_tones(entry.tone)
+        entry.dissonant = Dissonance.is_dissonant?(entry.mood, primary_tones)
       end
 
       entry.save

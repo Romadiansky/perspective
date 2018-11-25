@@ -28,7 +28,7 @@ class Spark
     entry = @user.entries.create!
     payload[:entry] = entry
     payload[:prompts] = []
-    1.upto(6) do |n|
+    1.upto(TOTAL_QUESTIONS) do |n|
       prompt = entry.prompts.create(question_id: n)
       payload[:prompts] << prompt.id
     end
