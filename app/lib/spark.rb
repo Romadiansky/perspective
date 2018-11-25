@@ -48,7 +48,7 @@ class Spark
   def enter_entries(prompt_ids, answer_object)
     # takes 6 prompt id strings (a..f) and a JSON object and inserts
     # all answers from the object (described in process_entries) to the database.
-    q3array = []
+    answer_words = {}
     answer_object["answers"].each do |answer|
       if !answer.second["body"]
       else
@@ -58,25 +58,42 @@ class Spark
         answerbuilder.body = answer.second["body"]
         answerbuilder.user_id = @user.id
         answerbuilder.save
-        if question_number == 3
-          q3array << answerbuilder.body.strip.downcase
+        if question_number == 4
+          answer_words[question_number] ||= []
+          if answerbuilder.body.strip.include? " "
+            @bodysplit = answerbuilder.body.split(" ")
+            @bodysplit.each do |word|
+              @cleaned = word.strip.downcase
+              answer_words[question_number] << @cleaned
+            end
+          else
+            answer_words[question_number] << answerbuilder.body.strip.downcase
+          end
+        end
+        if question_number == 2 || question_number == 3 || question_number == 5
+          answer_words[question_number] ||= []
+          answer_words[question_number] << answerbuilder.body.strip.downcase
         end
       end
     end
-    puts "=Q3 ARRAY ======================="
-p q3array
-    if q3array.any?
+    if answer_words[3].any?
       @q3wc = @user.word_counts.find_or_create_by(question_id: 3)
-      q3array.each do |word|
-    puts "=Q3 word ======================="
-        puts word
+      answer_words[3].each do |word|
         @q3wc.word_counter ||= {}
         @q3wc.word_counter[word] ||= 0
-        puts "created"
         @q3wc.word_counter[word] += 1
-        puts "incremented"
       end
       @q3wc.save
     end
+    if answer_words[4].any?
+      @q4wc = @user.word_counts.find_or_create_by(question_id: 4)
+      answer_words[4].each do |word|
+        @q4wc.word_counter ||= {}
+        @q4wc.word_counter[word] ||= 0
+        @q4wc.word_counter[word] += 1
+      end
+      @q4wc.save
+    end
+    p answer_words
   end
 end
