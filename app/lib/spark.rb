@@ -60,6 +60,7 @@ class Spark
         answerbuilder.save
         if question_number == 4
           answer_words[question_number] ||= []
+          # checks for multi-word entry in Question 4 and separates
           if answerbuilder.body.strip.include? " "
             @bodysplit = answerbuilder.body.split(" ")
             @bodysplit.each do |word|
@@ -76,6 +77,7 @@ class Spark
         end
       end
     end
+    # Question 3
     if answer_words[3].any?
       @q3wc = @user.word_counts.find_or_create_by(question_id: 3)
       answer_words[3].each do |word|
@@ -85,6 +87,7 @@ class Spark
       end
       @q3wc.save
     end
+    # Question 4
     if answer_words[4].any?
       @q4wc = @user.word_counts.find_or_create_by(question_id: 4)
       answer_words[4].each do |word|
@@ -94,6 +97,5 @@ class Spark
       end
       @q4wc.save
     end
-    p answer_words
   end
 end
