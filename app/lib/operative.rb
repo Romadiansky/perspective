@@ -16,20 +16,20 @@ class Operative
     ).result
   end
 
-  def self.operative_words(json)
-    keywords = []
-    if json["keywords"]["text"].any?
-      keywords << {[json["keywords"]["text"]] => json["keywords"]["count"].to_i}
-    else
-      nil
-    end
-    if json["entities"]["text"].any?
-      keywords << {[json["entites"]["text"]] => json["entities"]["count"].to_i}
-    else
-      nil
-    end
-    keywords
-  end
+  # def self.operative_words(json)
+  #   keywords = []
+  #   if json["keywords"]["text"].any?
+  #     keywords << {[json["keywords"]["text"]] => json["keywords"]["count"].to_i}
+  #   else
+  #     nil
+  #   end
+  #   if json["entities"]["text"].any?
+  #     keywords << {[json["entites"]["text"]] => json["entities"]["count"].to_i}
+  #   else
+  #     nil
+  #   end
+  #   keywords
+  # end
 
   def self.prepare_for_watson_nlu(entry, question_id)
     fragment = []
@@ -41,15 +41,6 @@ class Operative
       end
     end
     fragment.join(". ")
-  end
-
-  def self.total(user)
-    entries = user.entries
-    if entries.count >= MINIMUM_ENTRIES
-      entries.where(:dissonant => true).count.to_f / entries.count.to_f
-    else
-      0
-    end
   end
 
   def self.enter_nlu(nlu_output, q_id, user_id)
