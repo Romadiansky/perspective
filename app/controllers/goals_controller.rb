@@ -10,7 +10,9 @@ class GoalsController < ApplicationController
   # GET /goals/1
   # GET /goals/1.json
   def show
-    @wordlist = Frequency.pull(current_user.id, @id.to_i)
+    if (2..5) === @id
+      @wordlist = Frequency.pull(current_user.id, @id.to_i)
+    end
   end
 
   # GET /goals/new
@@ -65,7 +67,7 @@ class GoalsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_goal
-      @id = params[:id]
+      @id = params[:id].to_i
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
