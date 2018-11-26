@@ -41,10 +41,12 @@ class EntriesController < ApplicationController
       q2_operatives = Operative.fetch_operatives(q2_nlu_text)
       puts "=========================q2 ops"
       puts q2_operatives
+      Operative.enter_nlu(q2_operatives, 2, current_user.id)
       q5_nlu_text = Operative.prepare_for_watson_nlu(entry, 5)
       q5_operatives = Operative.fetch_operatives(q5_nlu_text)
       puts "=========================q5 ops"
       puts q5_operatives
+      Operative.enter_nlu(q5_operatives, 5, current_user.id)
       # puts operatives
 
       # if primary_tones = Dissonance.primary_tones(entry.tone)
