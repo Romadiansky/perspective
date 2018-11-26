@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'trends', to: 'trends#index'
   resources :goals
 
   resources :entries do

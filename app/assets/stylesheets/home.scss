@@ -132,6 +132,25 @@ textarea {resize: none}
   line-height: 1.5em;
 }
 
+.diss-bar{
+  left: 48%;
+  width: 50px;
+  height: 200px;
+  position: relative;
+}
+.diss-bar-entries{
+  background-color:tomato;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.diss-bar-dissonant{
+  background-color:#FDEBD0;
+  position: absolute;
+  width: 100%;
+  height: 0%;
+}
+
 .penguins {
   background-image: url('https://d3827n6zcogzlq.cloudfront.net/penguins.jpg');
 }

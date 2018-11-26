@@ -178,7 +178,6 @@ $(document).ready(function() {
 
   let slideshow = setInterval(changeBackground, 30000);
 
-
 //convenience function: generates valid ajax submissions (instead of the previous >= from today's line 157)
   $('.test-stable').click(function(e){
     e.preventDefault();

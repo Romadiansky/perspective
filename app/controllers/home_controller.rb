@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   before_action :mood_counter, only: [:show, :edit, :update, :destroy]
 
-
   def index
     mood_counter
     puts "====================="
@@ -11,16 +10,16 @@ class HomeController < ApplicationController
   def cards
   end
 
-    def set_moods
-    end
+  def set_moods
+  end
 
-    def mood_counter
-      @moodcount = {}
-      @moods = ["thoughtful", "curious", "serene", "grateful", "love", "happy", "anxious", "scared", "angry", "bored", "sad", "remorseful"]
-      @moods.each do |mood|
-        @moodcount[mood] = Answer.where(body: mood).where("created_at > ?", 2.days.ago).select("user_id").distinct.count
-      end
-      @moodcount
+  def mood_counter
+    @moodcount = {}
+    @moods = ["thoughtful", "curious", "serene", "grateful", "love", "happy", "anxious", "scared", "angry", "bored", "sad", "remorseful"]
+    @moods.each do |mood|
+      @moodcount[mood] = Answer.where(body: mood).where("created_at > ?", 2.days.ago).select("user_id").distinct.count
     end
+    @moodcount
+  end
 
 end
