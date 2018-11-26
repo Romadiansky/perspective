@@ -5,6 +5,7 @@ class GoalsController < ApplicationController
   # GET /goals.json
   def index
     @goals = Goal.all
+    @wordlist = Frequency.pull(current_user.id, 5)
   end
 
   # GET /goals/1
