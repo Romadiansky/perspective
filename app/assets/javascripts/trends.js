@@ -19,7 +19,7 @@ $(document).ready(function() {
 // - registration handling
 // - intro when you arrive (plus instructions / cvp)
 // - conclusion when you're done
-// - validations for all fields (first and last q's can't be empty)
+
 // - lay out all trends
 // - stagger Rene's questions (subtitles should appear after the main q)
 // - implement skip option

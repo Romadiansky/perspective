@@ -123,13 +123,19 @@ textarea {resize: none}
 
 .advice {
   font-size: 14px;
-  margin: 0 0 10px;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
   text-align: center!important;
   font-family: Roboto,Helvetica,Arial,sans-serif;
   font-weight: 300;
   line-height: 1.5em;
+  position: relative;
+  margin: 0 auto;
+  /*border-right: 2px solid rgba(255,255,255,.75);*/
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-50%);
 }
 
 .diss-bar{
@@ -166,11 +172,12 @@ textarea {resize: none}
 @keyframes slideOutUpBig {
   from {
     transform: translate3d(0, 0, 0);
+    visibility: visible;
   }
 
   to {
     visibility: hidden;
-    transform: translate3d(0, -500%, 0);
+    transform: translate3d(0, -200%, 0);
   }
 }
 
@@ -180,12 +187,13 @@ textarea {resize: none}
 
 @keyframes slideInUpBig {
   from {
-    transform: translate3d(0, 500%, 0);
+    transform: translate3d(0, 200%, 0);
     visibility: visible;
   }
 
   to {
     transform: translate3d(0, 0, 0);
+    visibility: hidden;
   }
 }
 
@@ -201,4 +209,20 @@ textarea {resize: none}
   to {
     -webkit-filter: hue-rotate(-360deg);
   }
+}
+
+/* Animation */
+
+.anim-typewriter {
+  animation: typewriter 4s steps(38) 2s 1 normal both;
+             /*blinkTextCursor 700ms steps(38);*/
+}
+
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 24em;}
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
 }

@@ -132,6 +132,7 @@ $(document).ready(function() {
     let prompt_info = prompts_list[index];
     $('.question').html(prompt_info.title);
     $('.advice').html(prompt_info.subtitle);
+    $('.advice').addClass('anim-typewriter')
     if (prompt_info.interface_name === "text_list") {
       current_prompt_handler = new Prompt_handler_text_lines(prompt_info.id)
     }
@@ -144,11 +145,26 @@ $(document).ready(function() {
   }
 
   function finish_prompt() {
+    if (current_prompt_index === 0) {
+      let answers = current_prompt_handler.collect_answers();
+      if (answers[0].body == "") {
+        $(".mood-input").focus()
+        return;
+      };
+    }
+    if (current_prompt_index === 5) {
+      let answers = current_prompt_handler.collect_answers();
+      if (answers[0].body == "") {
+        $(".textbox-input").prop("placeholder", `Oops. It looks like you left this empty... \n\nYou don't have to say much, but try and write down a few things you're currently thinking *right now*.`)
+        return;
+      };
+    }
     llama_entry.answers = llama_entry.answers.concat(current_prompt_handler.collect_answers());
     current_prompt_handler.cleanup();
     current_prompt_index ++;
 
     if (current_prompt_index < prompts_list.length) {
+      $('.advice').removeClass('anim-typewriter')
       $('.container').animateCss('slideOutUpBig', function(e) {
         load_prompt(current_prompt_index);
         $('.container').animateCss('slideInUpBig');
