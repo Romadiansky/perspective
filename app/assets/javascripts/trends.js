@@ -1,18 +1,35 @@
 $(document).ready(function() {
 
-// if mood is incompatible with your tone you get a dissonance point
-// if dissonance points per batch are greater than what is considered healthy, your dissonance meter increases
-
-  function setDissonanceBar(percentage){
+  function setDissonanceBar(percentage) {
     $('.diss-bar-dissonant').css('height', `${100-percentage}%`);
   }
 
   setDissonanceBar(10);
 
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Entries', 'Detected Dissonance'],
+      ['total entries',     total_entries],
+      ['dissonance detected', dissonance_total]
+    ]);
+
+    var options = {
+      title: 'Dissonance Pie'
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+    chart.draw(data, options);
+  }
+
 })
 
 // TODO
-
+// - past entries!!!
 // - moodchart to main page
 // - moodchart to link to trends
 // - mood selector to be color-coded (if still dropdown)
@@ -25,6 +42,7 @@ $(document).ready(function() {
 // - implement skip option
 // - add About page which explains CVP, data theory and a little about Llama founders
 // - mobile responsive!!!
+// - #f3e9db for all white backgrounds
 // - add Llama logo
 // - deploy on Heroku
 // - add photos to library of backgrounds
