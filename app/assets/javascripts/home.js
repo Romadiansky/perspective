@@ -154,7 +154,9 @@ $(document).ready(function() {
         $('.container').animateCss('slideInUpBig');
       });
     }
-    if (current_prompt_index === prompts_list.length) {
+    // USE LINE BELOW FOR PRODUCTION
+    // if (current_prompt_index === prompts_list.length) {
+    if (current_prompt_index >= prompts_list.length) {
       console.log(llama_entry);
       $.post('/entries.json', llama_entry);
     }

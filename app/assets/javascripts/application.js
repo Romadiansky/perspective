@@ -16,5 +16,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require home
+//= require jqcloud
 // require_tree .
 
