@@ -1,0 +1,103 @@
+<div class="modal fade" id="account-modal" tabindex="-1" role="dialog" aria-labelledby="account-modal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registration-modal-title">Account</h5><br>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link modal-tab active" id="sign-in-tab" data-toggle="tab" href="#panel-sign-in" role="tab" aria-controls="sign-in" aria-selected="true">Sign In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link modal-tab" id="register-tab" data-toggle="tab" href="#panel-register" role="tab" aria-controls="register" aria-selected="false">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link modal-tab" id="password-tab" data-toggle="tab" href="#panel-password" role="tab" aria-controls="password" aria-selected="false">Password?</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="panel-sign-in" role="tabpanel" aria-labelledby="sign-in-tab">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name), remote: true, html: {id: 'sign-in-form'}) do |f| %>
+              <div id="sign-in-alert" class="alert alert-danger mt-3" role="alert" style="display:none;"></div>
+              <div class="field mt-2">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", id: 'sign-in-email' %>
+              </div>
+
+              <div class="field mt-2">
+                <%= f.label :password %><br />
+                <%= f.password_field :password, autocomplete: "current-password", id: 'sign-in-password' %>
+              </div>
+
+              <% if devise_mapping.rememberable? -%>
+                <div class="field mt-2">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                </div>
+              <% end -%>
+
+              <div class="actions mt-3">
+                <%= f.submit "Sign In", :class => 'btn btn-primary btn-orange' %>
+              </div>
+            <% end %>
+          </div>
+          <div class="tab-pane fade" id="panel-register" role="tabpanel" aria-labelledby="register-tab">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), remote: true, html: {id: 'register-form'}) do |f| %>
+
+              <div id="register-alert" class="alert alert-danger mt-3" role="alert" style="display:none;"></div>
+
+              <div class="field mt-2">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", id: 'register-email' %>
+              </div>
+
+              <div class="field mt-2">
+                <%= f.label :first_name %><br />
+                <%= f.text_field :first_name, autocomplete: "first-name", id: 'register-first-name' %>
+              </div>
+
+              <div class="field mt-2">
+                <%= f.label :last_name %><br />
+                <%= f.text_field :last_name, autocomplete: "last-name", id: 'register-last-name' %>
+              </div>
+
+              <div class="field mt-2">
+                <%= f.label :password %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "new-password", id: 'register-password' %>
+              </div>
+
+              <div class="field mt-2">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", id: 'register-confirm-password' %>
+              </div>
+
+              <div class="actions mt-3">
+                <%= f.submit "Sign up", :class => 'btn btn-primary btn-orange' %>
+              </div>
+            <% end %>
+          </div>
+          <div class="tab-pane fade" id="panel-password" role="tabpanel" aria-labelledby="password-tab">
+            <%= form_for(resource, as: resource_name, url: password_path(resource_name), remote: true, html: {id: 'password-form'}) do |f| %>
+              <div id="password-alert" class="alert alert-danger mt-3" role="alert" style="display:none;"></div>
+              <div class="field mt-2">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", id: 'password-email' %>
+              </div>
+
+              <div class="actions mt-3">
+                <%= f.submit "Reset Password", :class => 'btn btn-primary btn-orange' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -39,6 +39,7 @@ gem 'ibm_watson'
 # Shows you your environment inside console
 gem 'marco-polo'
 
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

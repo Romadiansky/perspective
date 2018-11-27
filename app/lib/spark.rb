@@ -1,23 +1,18 @@
 class Spark
   def initialize (user = nil)
-    if !user
-      # should we be setting @user to the last user if there isn't one logged in?
-      @user = User.last
-    else
-      @user = user
-    end
+    @user = user
   end
 
-  def next_entry
-    if @user
-      entry = @user.entries.find_by(state: 'incomplete')
-      if entry == {}
-        next_entry.new_entry
-      end
-    else
-        next_entry.new_entry
-    end
-  end
+  # def next_entry
+  #   if @user
+  #     entry = @user.entries.find_by(state: 'incomplete')
+  #     if entry == {}
+  #       next_entry.new_entry
+  #     end
+  #   else
+  #       next_entry.new_entry
+  #   end
+  # end
 
   def new_entry
     # Creates a new Entry database entry linked to @user with six Prompt db Entries,
