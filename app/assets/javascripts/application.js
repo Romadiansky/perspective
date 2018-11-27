@@ -26,6 +26,7 @@ $(document).ready(function() {
     $('#account-modal').modal('hide');
     $('#account-link').hide();
     $('#sign-out-link').show();
+    $('body').data('user', true);
     notify(`Welcome back, ${e.first_name}!`)
   });
   $("form#sign-in-form").on("ajax:error", function(event) {

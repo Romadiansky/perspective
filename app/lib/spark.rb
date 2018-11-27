@@ -73,7 +73,7 @@ class Spark
       end
     end
     # Question 3
-    if answer_words[3].any?
+    if answer_words[3] && answer_words[3].any?
       @q3wc = @user.word_counts.find_or_create_by(question_id: 3)
       answer_words[3].each do |word|
         @q3wc.word_counter ||= {}
@@ -83,8 +83,7 @@ class Spark
       @q3wc.save
     end
     # Question 4
-    if !answer_words[4]
-    else
+    if answer_words[4]
       @q4wc = @user.word_counts.find_or_create_by(question_id: 4)
       answer_words[4].each do |word|
         @q4wc.word_counter ||= {}
