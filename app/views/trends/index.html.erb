@@ -1,35 +1,17 @@
+
 <div class="full-screen penguins" data-photo="penguins">
-  <br><br><br><br><br><br><br><br>
+  <br><br><br><br>
 
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-8 ml-auto mr-auto">
-        <div class="card card-raised card-form-horizontal mt-4">
-          <div class="card-body pr-5">
-            <div class="row">
-              <div class="col-12">
-                <div id="piechart"></div>
-                <script>
-                  let dissonance_total = <%= @total %>;
-                  let total_entries = <%= @entries.size %>;
-                </script>
-              </div>
-            </div>
-          </div>
+        <div class="text-center">
+          <h3 class="colour-title title">Trends</h3>
+          <p class="description advice text-white">Subtitle</p>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-md-8 ml-auto mr-auto">
         <div class="card card-raised card-form-horizontal mt-4">
           <div class="card-body pr-5">
-            <div class="row">
-              <div class="col-12">
-                <div class="diss-bar">
-                  <div class="diss-bar-entries"></div>
-                  <div class="diss-bar-dissonant"></div>
-                </div>
-              </div>
+            <div id="perspective-content-container">
             </div>
             <div class="row justify-content-end">
               <div class="col-11 col-sm-6 col-md-5 col-lg-4 mt-2 ml-auto">
@@ -42,3 +24,87 @@
     </div>
   </div>
 </div>
+
+<!-- Templates Below -->
+
+<template id="dissonance-template">
+  <div class="row">
+    <div class="col-12">
+      <div id="piechart"></div>
+      <script>
+        let dissonance_total = <%= @total %>;
+        let total_entries = <%= @entries.size %>;
+      </script>
+      <br>
+      <p>text here that explains the pie</p>
+    </div>
+  </div>
+</template>
+
+<template id="wordcloud2-template">
+  <div class="row">
+    <div class="col-12">
+      <script type="text/javascript">
+        var word_array = <%= raw @wordlist2.to_json %>;
+        $(function() {
+          // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
+          $("#wordcloud").jQCloud(word_array);
+        });
+      </script>
+      <center><div id="wordcloud" style="width: 50vmin; height: 50vmin;"></div></center>
+      <br>
+      <p>text here that explains the cloud</p>
+    </div>
+  </div>
+</template>
+
+<template id="wordcloud3-template">
+  <div class="row">
+    <div class="col-12">
+      <script type="text/javascript">
+        var word_array = <%= raw @wordlist3.to_json %>;
+        $(function() {
+          // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
+          $("#wordcloud").jQCloud(word_array);
+        });
+      </script>
+      <center><div id="wordcloud" style="width: 50vmin; height: 50vmin;"></div></center>
+      <br>
+      <p>text here that explains the cloud</p>
+    </div>
+  </div>
+</template>
+
+<template id="wordcloud4-template">
+  <div class="row">
+    <div class="col-12">
+      <script type="text/javascript">
+        var word_array = <%= raw @wordlist4.to_json %>;
+        $(function() {
+          // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
+          $("#wordcloud").jQCloud(word_array);
+        });
+      </script>
+      <center><div id="wordcloud" style="width: 50vmin; height: 50vmin;"></div></center>
+      <br>
+      <p>text here that explains the cloud</p>
+    </div>
+  </div>
+</template>
+
+<template id="wordcloud5-template">
+  <div class="row">
+    <div class="col-12">
+      <script type="text/javascript">
+        var word_array = <%= raw @wordlist5.to_json %>;
+        $(function() {
+          // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
+          $("#wordcloud").jQCloud(word_array);
+        });
+      </script>
+      <center><div id="wordcloud" style="width: 50vmin; height: 50vmin;"></div></center>
+      <br>
+      <p>text here that explains the cloud</p>
+    </div>
+  </div>
+</template>
