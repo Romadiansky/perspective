@@ -29,41 +29,8 @@
 <i class="fal fa-seedling fa-2x colour-title"></i>
 -->
 
-<template id="answer-template">
-  <div class="row">
-    <div class="col-12">
-      <span class="bmd-form-group">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">
-              <i class="fal fa-heart-circle icon colour-title"></i>
-            </span>
-          </div>
-          <input type="text" value="" placeholder="Kitty was extra cuddly tonight" class="form-control answer-input">
-        </div>
-      </span>
-    </div>
-  </div>
-</template>
-
 <template id="textbox-template">
-  <div class="row">
-    <div class="col-12">
-      <span class="bmd-form-group">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">
-              <!-- <i class="fal fa-heart-circle icon colour-title"></i> -->
-            </span>
-          </div>
-          <textarea rows="5" placeholder="Tell me some things you're currently thinking about." class="form-control textbox-input"></textarea>
-        </div>
-      </span>
-    </div>
-  </div>
-</template>
 
-<template id="mood-template">
   <div class="row">
     <div class="col-12">
       <span class="bmd-form-group">
@@ -71,23 +38,27 @@
           <div class="input-group-prepend">
             <span class="input-group-text">
               <!-- <i class="fal fa-heart-circle icon colour-title"></i> -->
+
             </span>
+            <table>
+              <thead>
+                <tr>
+                  <th colspan="4"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @entries.order(created_at: :desc).each do |entry| %>
+                  <tr>
+                    <td> Entry # <%= entry.id %> by <%= entry.user.first_name %> <%= entry.user.last_name %> </td>
+                    <td><%= link_to 'Show', entry %></td>
+                    <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+                    <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
           </div>
-          <select class="form-control mood-input">
-            <option></option>
-            <option value="curious">Curious</option>
-            <option value="happy">Happy</option>
-            <option value="serene">Serene</option>
-            <option value="grateful">Grateful</option>
-            <option value="scared">Scared</option>
-            <option value="anxious">Anxious</option>
-            <option value="angry">Angry</option>
-            <option value="sad">Sad</option>
-            <option value="remorseful">Remorseful</option>
-            <option value="bored">Bored</option>
-            <option value="thoughtful">Thoughtful</option>
-            <option value="love">Love</option>
-          </select>
         </div>
       </span>
     </div>

@@ -7,36 +7,6 @@ $(document).ready(function() {
   let prompts_list = [
     {
       id: 1,
-      title: "What's your current mood?",
-      subtitle: "Take a moment and really think about how you feel.",
-      interface_name: "mood"
-    },
-    {
-      id: 2,
-      title: "What did you do today?",
-      subtitle: "I like lists. Try writing me a list.",
-      interface_name: "text_list"
-    },
-    {
-      id: 3,
-      title: "Who were the people in your life today?",
-      subtitle: "Remember: I love lists. ;)",
-      interface_name: "text_list"
-    },
-    {
-      id: 4,
-      title: "Give me three words to describe your day.",
-      subtitle: "For example, my day was: chilly, hopeful, and analytical.",
-      interface_name: "text_list"
-    },
-    {
-      id: 5,
-      title: "Tell me three things you're grateful for right now",
-      subtitle: "You don't have to think big. It's the little things...",
-      interface_name: "text_list"
-    },
-    {
-      id: 6,
       title: "Want to say more?",
       subtitle: "I want to hear it.",
       interface_name: "textarea"
