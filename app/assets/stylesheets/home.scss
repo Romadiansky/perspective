@@ -18,6 +18,10 @@
   padding: 12px 30px 12px 30px;
 }
 
+h1.orange,h2.orange,h3.orange,h4.orange,h5.orange,a.orange {
+  color: #ef5350;
+}
+
 /*.cont-center {
   margin-top: calc(30%);
 }*/
@@ -29,7 +33,7 @@
   //background-image: linear-gradient(0deg, rgb(240, 150, 67) 2px, rgba(156, 39, 176, 0) 0px) repeat scroll 0% 0% / auto padding-box padding-box, rgb(255, 255, 255) linear-gradient(0deg, rgb(210, 210, 210) 1px, rgba(209, 209, 209, 0) 0px) repeat scroll 0% 0% / auto padding-box padding-box;
   font-family: Roboto,Helvetica,Arial,sans-serif;
   font-weight: 400;
-  line-height: 15.4px;
+  line-height: 28px;
   font-size: 20px;
   height: 36px;
   padding: 10.5px 0 10.5px 0;
@@ -102,7 +106,7 @@ textarea {resize: none}
 }
 
 .navbar-brand {
-  font-size: 1.125rem;
+  font-size: 1.725rem;
   line-height: 30px;
   padding: .625rem 0;
   font-family: Roboto,Helvetica,Arial,sans-serif;
@@ -110,9 +114,17 @@ textarea {resize: none}
 }
 
 .navbar-item {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   line-height: 30px;
   padding: .625rem 0;
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  font-weight: 300;
+}
+
+.nav-link {
+  font-size: 1.35rem;
+  line-height: 20px;
+  padding: .45rem 0;
   font-family: Roboto,Helvetica,Arial,sans-serif;
   font-weight: 300;
 }
@@ -121,12 +133,14 @@ textarea {resize: none}
   outline-color: #ef9144 !important;
 }
 .navbar-toggler-icon {
+  height: 40px;
+  width: 40px;
   background-image:url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
 }
 
 .question {
-  font-size: 1.5625rem;
-  line-height: 1.4em;
+  font-size: 2.4rem;
+  line-height: 1.6em;
   -webkit-font-smoothing: antialiased;
   margin: 20px 0 10px 0;
   font-family: Roboto,Helvetica,Arial,sans-serif;
@@ -134,7 +148,7 @@ textarea {resize: none}
 }
 
 .advice {
-  font-size: 14px;
+  font-size: 18px;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
   text-align: center!important;

@@ -6,7 +6,7 @@ $(document).ready(function() {
   let input_container = document.querySelector("#input-container");
   let prompts_list = [
     {
-      title: "Your Entries",
+      title: "Your Entry",
       interface_name: "textarea"
     }
   ];
@@ -98,7 +98,7 @@ $(document).ready(function() {
 
   function load_prompt(index) {
     let prompt_info = prompts_list[index];
-    $('.question').html(prompt_info.title);
+    // $('.question').html(prompt_info.title);
     $('.advice').html(prompt_info.subtitle);
     $('.advice').addClass('anim-typewriter')
     if (prompt_info.interface_name === "text_list") {

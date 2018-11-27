@@ -3,6 +3,7 @@
   <br><br><br><br>
 
   <div class="container">
+    <% if current_user %>
     <div class="row">
       <div class="col-12 col-md-8 ml-auto mr-auto">
         <div class="text-center">
@@ -22,6 +23,17 @@
         </div>
       </div>
     </div>
+    <% else %>
+    <div class="row">
+      <div class="col-12 col-md-8 ml-auto mr-auto">
+        <div class="card card-raised card-form-horizontal mt-4">
+          <div class="card-body pr-5">
+            <p>You need to Sign In or Register to see Trends.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>
 
