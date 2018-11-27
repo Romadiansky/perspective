@@ -32,20 +32,20 @@
 
   <div class="row">
     <div class="col-12">
-      <span class="bmd-form-group">
+      <span class="bmd-form-group" style="margin: auto;">
         <div class="input-group">
 
-            <table>
+            <table width="100%">
               <thead>
                 <tr>
-                  <th colspan="4"></th>
+                  <th colspan="1"></th>
                 </tr>
               </thead>
 
               <tbody>
                 <% @entries.order(created_at: :desc).each do |entry| %>
                   <tr>
-                    <td> <%= link_to entry.created_at.strftime("%A, %B %e,  %Y"), entry %>
+                    <td style="text-align: center;"> <%= link_to entry.created_at.strftime("%A, %B %e,  %Y"), entry %>
                     </td>
                   </tr>
                 <% end %>
