@@ -12,15 +12,18 @@
       <li class="nav-item">
         <a class="nav-link text-white test-dissonant" href="/">Test Dissonant</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="/trends">Trends</a>
-      </li>
       <% unless current_user %>
       <li class="nav-item">
         <a id="account-link" class="nav-link text-white" href="javascript:void(0)" data-toggle="modal" data-target="#account-modal">Account</a>
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete, 'class' => 'nav-link text-white', 'id' => 'sign-out-link', 'style' => 'display:none' %>
       </li>
       <% else %>
+      <li class="nav-item">
+        <%= link_to "Entries", entries_url, 'class' => 'nav-link text-white' %>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/trends">Trends</a>
+      </li>
       <li class="nav-item">
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete, 'class' => 'nav-link text-white' %>
       </li>
