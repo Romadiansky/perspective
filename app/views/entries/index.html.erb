@@ -1,26 +1,95 @@
-<p id="notice"><%= notice %></p>
+<div class="full-screen penguins" data-photo="penguins">
+  <br><br><br><br><br><br><br><br>
 
-<h1>Entries</h1>
+  <div class="container cont-center" style="opacity: 0;">
+    <div class="row">
+      <div class="col-12 col-md-8 ml-auto mr-auto">
+        <div class="text-center">
+          <h3 class="colour-title question"></h3>
+          <p class="description advice text-white"></p>
+        </div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
+        <div class="card card-raised card-form-horizontal mt-4">
+          <div class="card-body pr-5 answer-container">
+            <div id="input-container"></div>
+            <div class="row justify-content-end">
+              <div class="col-11 col-sm-6 col-md-5 col-lg-4 mt-2 ml-auto">
+                <button type="button" class="btn btn-primary btn-block btn-orange submit-button">DONE</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <tbody>
-    <% @entries.order(created_at: :desc).each do |entry| %>
-      <tr>
-        <td> Entry # <%= entry.id %> by <%= entry.user.first_name %> <%= entry.user.last_name %> </td>
-        <td><%= link_to 'Show', entry %></td>
-        <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
-        <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<!--
+<i class="fal fa-acorn fa-2x colour-title"></i>
+<i class="fal fa-seedling fa-2x colour-title"></i>
+-->
 
-<br>
+<template id="answer-template">
+  <div class="row">
+    <div class="col-12">
+      <span class="bmd-form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fal fa-heart-circle icon colour-title"></i>
+            </span>
+          </div>
+          <input type="text" value="" placeholder="Kitty was extra cuddly tonight" class="form-control answer-input">
+        </div>
+      </span>
+    </div>
+  </div>
+</template>
 
-<%= link_to 'New Entry', new_entry_path %>
+<template id="textbox-template">
+  <div class="row">
+    <div class="col-12">
+      <span class="bmd-form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <!-- <i class="fal fa-heart-circle icon colour-title"></i> -->
+            </span>
+          </div>
+          <textarea rows="5" placeholder="Tell me some things you're currently thinking about." class="form-control textbox-input"></textarea>
+        </div>
+      </span>
+    </div>
+  </div>
+</template>
+
+<template id="mood-template">
+  <div class="row">
+    <div class="col-12">
+      <span class="bmd-form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <!-- <i class="fal fa-heart-circle icon colour-title"></i> -->
+            </span>
+          </div>
+          <select class="form-control mood-input">
+            <option></option>
+            <option value="curious">Curious</option>
+            <option value="happy">Happy</option>
+            <option value="serene">Serene</option>
+            <option value="grateful">Grateful</option>
+            <option value="scared">Scared</option>
+            <option value="anxious">Anxious</option>
+            <option value="angry">Angry</option>
+            <option value="sad">Sad</option>
+            <option value="remorseful">Remorseful</option>
+            <option value="bored">Bored</option>
+            <option value="thoughtful">Thoughtful</option>
+            <option value="love">Love</option>
+          </select>
+        </div>
+      </span>
+    </div>
+  </div>
+</template>
