@@ -25,7 +25,8 @@ $(document).ready(function() {
     e = event.originalEvent.detail[0];
     $('#account-modal').modal('hide');
     $('#account-link').hide();
-    $('#sign-out-link').show();
+    $('.ajax-user').show();
+    $('body').data('user', true);
     notify(`Welcome back, ${e.first_name}!`)
   });
   $("form#sign-in-form").on("ajax:error", function(event) {
@@ -35,7 +36,8 @@ $(document).ready(function() {
     e = event.originalEvent.detail[0];
     $('#account-modal').modal('hide');
     $('#account-link').hide();
-    $('#sign-out-link').show();
+    $('.ajax-user').show();
+    $('body').data('user', true);
     notify(`Welcome to Daily Llama, ${e.first_name}!`)
   });
   $("form#register-form").on("ajax:error", function(event) {

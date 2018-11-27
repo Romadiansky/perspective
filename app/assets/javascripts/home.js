@@ -177,12 +177,27 @@ $(document).ready(function() {
         $('.container').animateCss('slideInUpBig');
       });
     }
-    // USE LINE BELOW FOR PRODUCTION
-    // if (current_prompt_index === prompts_list.length) {
-    if (current_prompt_index >= prompts_list.length) {
+
+    if (current_prompt_index === prompts_list.length) {
       console.log(llama_entry);
       $.post('/entries.json', llama_entry);
+      afterEntry();
     }
+  }
+
+  function afterEntry(){
+    $('.advice').removeClass('anim-typewriter');
+    $('.question').fadeOut();
+    $('.cont-center').animateCss('fadeOutDown', function(){
+      $('.cont-center').css('opacity', 0);
+      $('.advice').html("Oh, you're still here...").addClass('anim-typewriter')
+      setTimeout(function(){
+        $('.advice').html('').removeClass('anim-typewriter');
+        setTimeout(function(){
+          $('.advice').html("That's it, though. The whole show. Go live your life.").addClass('anim-typewriter')
+        }, 50);
+      }, 4000);
+    });
   }
 
   function changeBackground() {
