@@ -26,7 +26,7 @@ gem 'uglifier', '>= 1.3.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
-
+gem "jqcloud-rails"
 gem "bootstrap", ">= 4.1.2"
 # Helps with authentication
 gem 'devise'

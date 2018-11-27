@@ -1,14 +1,39 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQCloud Example</title>
+    <link rel="stylesheet" type="text/css" href="/assets/jqcloud.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/jqcloud.js"></script>
+      <%= javascript_tag do %>
+        var word_array = <%= raw @wordlist.to_json %>;
+      <% end %>
+      WORDS
+    <script type="text/javascript">
+      /*!
+       * Create an array of word objects, each representing a word in the cloud
+       */
 
-<p>
-  <strong>Body:</strong>
-  <%= @goal.body %>
-</p>
 
-<p>
-  <strong>Complete:</strong>
-  <%= @goal.complete %>
-</p>
 
-<%= link_to 'Edit', edit_goal_path(@goal) %> |
-<%= link_to 'Back', goals_path %>
+      // [
+      //     {text: "Lorem", weight: 15},
+      //     {text: "Ipsum", weight: 9},
+      //     {text: "Dolor", weight: 6},
+      //     {text: "Sit", weight: 7},
+      //     {text: "Amet", weight: 5}
+      //     // ...as many words as you want
+      // ]
+      ;
+
+      $(function() {
+        // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
+        $("#example").jQCloud(word_array);
+      });
+    </script>
+  </head>
+  <body>
+    <!-- You should explicitly specify the dimensions of the container element -->
+    <center><div id="example" style="width: 50vmin; height: 50vmin;"></div></center>
+  </body>
+</html>
