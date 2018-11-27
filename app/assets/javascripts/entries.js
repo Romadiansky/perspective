@@ -6,9 +6,7 @@ $(document).ready(function() {
   let input_container = document.querySelector("#input-container");
   let prompts_list = [
     {
-      id: 1,
-      title: "Want to say more?",
-      subtitle: "I want to hear it.",
+      title: "Your Entries",
       interface_name: "textarea"
     }
   ];
