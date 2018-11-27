@@ -3,16 +3,16 @@ class Spark
     @user = user
   end
 
-  # def next_entry
-  #   if @user
-  #     entry = @user.entries.find_by(state: 'incomplete')
-  #     if entry == {}
-  #       next_entry.new_entry
-  #     end
-  #   else
-  #       next_entry.new_entry
-  #   end
-  # end
+  def next_entry
+    if @user
+      entry = @user.entries.find_by(state: 'incomplete')
+      if entry == {}
+        next_entry.new_entry
+      end
+    else
+        next_entry.new_entry
+    end
+  end
 
   def new_entry
     # Creates a new Entry database entry linked to @user with six Prompt db Entries,

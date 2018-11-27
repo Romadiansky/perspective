@@ -1,20 +1,24 @@
 <div class="full-screen penguins" data-photo="penguins">
-<br>
+<br><br><br><br><br><br>
 
-  <div class="container cont-center" style="opacity: 0;">
+  <div class="container cont-center" style="opacity: 0; ">
     <div class="row">
       <div class="col-12 col-md-8 ml-auto mr-auto">
         <div class="text-center">
-          <h3 class="colour-title question"> </h3>
+          <h3 class="colour-title question">Your Entries</h3>
           <p class="description advice text-white"></p>
         </div>
 
-        <div class="card card-raised card-form-horizontal mt-4" style="overflow-y:scroll; height: 70vmin; margin: auto;">
-          <div class="card-body pr-5 answer-container">
-            <div id="input-container"></div>
-            <div class="row justify-content-end">
-              <div class="col-11 col-sm-6 col-md-5 col-lg-4 mt-2 ml-auto">
+        <div class="card card-raised card-form-horizontal mt-4" style="overflow-y: scroll; height: 500px;">
+          <div class="card-body px-5">
+            <div class="row">
+              <% @entries.each do |entry| %>
+              <div class="card col-12">
+                <div class="card-body px-2">
+                  <%= link_to entry.created_at.strftime("%A, %B %e,  %Y"), entry, class: 'orange' %>
+                </div>
               </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -23,36 +27,3 @@
   </div>
 </div>
 
-<!--
-<i class="fal fa-acorn fa-2x colour-title"></i>
-<i class="fal fa-seedling fa-2x colour-title"></i>
--->
-
-<template id="textbox-template">
-
-  <div class="row">
-    <div class="col-12">
-      <span class="bmd-form-group" style="margin: auto;">
-        <div class="input-group">
-
-            <table width="100%">
-              <thead>
-                <tr>
-                  <th colspan="1"></th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <% @entries.order(created_at: :desc).each do |entry| %>
-                  <tr>
-                    <td style="text-align: center;"> <%= link_to entry.created_at.strftime("%A, %B %e,  %Y"), entry %>
-                    </td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-        </div>
-      </span>
-    </div>
-  </div>
-</template>

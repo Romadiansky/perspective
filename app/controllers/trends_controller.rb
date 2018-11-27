@@ -1,8 +1,10 @@
 class TrendsController < ApplicationController
 
   def index
-    @entries = current_user.entries
-    @total = Dissonance.total(current_user)
+    if current_user
+      @entries = current_user.entries
+      @total = Dissonance.total(current_user)
+    end
   end
 
 end

@@ -1,59 +1,29 @@
 <div class="full-screen penguins" data-photo="penguins">
-<br>
+<br><br><br><br><br>
 
   <div class="container cont-center" style="opacity: 0;">
     <div class="row">
       <div class="col-12 col-md-8 ml-auto mr-auto">
         <div class="text-center">
-          <h3 class="colour-title question"> </h3>
+          <h3 class="colour-title question">Your Entry</h3>
           <p class="description advice text-white">
           <%= @entry.created_at.strftime("%A, %B %e,  %Y") %>
           </p>
         </div>
-        <div class="card card-raised card-form-horizontal mt-4" style="overflow-y:scroll; height: 70vmin; margin: auto;">
+        <div class="card card-raised card-form-horizontal mt-4" style="overflow-y: scroll; height: 500px;">
           <div class="card-body pr-5 answer-container">
-            <div id="input-container"></div>
-            <div class="row justify-content-end">
-              <div class="col-11 col-sm-6 col-md-5 col-lg-4 mt-2 ml-auto">
-              </div>
-            </div>
+            <% @entry.prompts.order(:question_id).each do |prompt| %>
+              <% if prompt.answers.count > 0 %>
+                <h5 class="orange"><%= prompt.question.body %></h5>
+                <% prompt.answers.each do |answer| %>
+                  <%= answer.body.capitalize %><br>
+                <% end %>
+                <br>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<!--
-<i class="fal fa-acorn fa-2x colour-title"></i>
-<i class="fal fa-seedling fa-2x colour-title"></i>
--->
-
-<template id="textbox-template">
-
-  <div class="row">
-    <div class="col-12">
-      <span class="bmd-form-group" style="margin: auto;">
-        <div class="input-group">
-                      <table width="100%">
-  <tbody>
-    <% @prompts.order(:question_id).each do |prompt| %>
-      <tr>
-        <% if prompt.answers.count > 0 %>
-        <td><h5> <%= link_to prompt.question.body, entry_answers_path(:entry_id => prompt.id) %> </h5></td>
-        <% prompt.answers.each do |answer| %>
-      </tr>
-      <tr>
-        <td> <%= answer.body.capitalize %> </td>
-      </tr>
-    <% end %>
-      <br>
-        <% else %>
-    <% end %>
-    <% end %>
-  </tbody>
-          </div>
-      </span>
-    </div>
-  </div>
-</template>
