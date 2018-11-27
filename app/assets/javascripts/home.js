@@ -158,6 +158,13 @@ $(document).ready(function() {
         $(".textbox-input").prop("placeholder", `Oops. It looks like you left this empty... \n\nYou don't have to say much, but try and write down a few things you're currently thinking *right now*.`)
         return;
       };
+      if ($('body').data('user') === false) {
+        notify("You have to Sign In or Register to save your entry.", 'laugh-wink');
+        setTimeout(function(){
+          $('#account-modal').modal('show')
+        }, 2500)
+        return;
+      };
     }
     llama_entry.answers = llama_entry.answers.concat(current_prompt_handler.collect_answers());
     current_prompt_handler.cleanup();
@@ -195,6 +202,8 @@ $(document).ready(function() {
   $('.submit-button').click(finish_prompt);
 
   let slideshow = setInterval(changeBackground, 30000);
+
+  new WOW().init();
 
 //convenience function: generates valid ajax submissions (instead of the previous >= from today's line 157)
   $('.test-stable').click(function(e){

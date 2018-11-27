@@ -29,4 +29,6 @@ class User < ApplicationRecord
   has_many :goals
   has_many :word_counts
 
+  validates :first_name, presence: true
+
 end
