@@ -14,8 +14,9 @@
 
 </head>
 
-<body>
+<body data-user="<%= current_user ? "true" : "false" %>">
 
+  <%= render :partial => "layouts/account" %>
   <%= render :partial => "layouts/nav" %>
 
   <% if notice %>

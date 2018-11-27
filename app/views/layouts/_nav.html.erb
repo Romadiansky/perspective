@@ -17,10 +17,8 @@
       </li>
       <% unless current_user %>
       <li class="nav-item">
-        <a class="nav-link text-white" href="<%= new_user_session_path %>">Sign In</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="<%= new_user_registration_path %>">Register</a>
+        <a id="account-link" class="nav-link text-white" href="javascript:void(0)" data-toggle="modal" data-target="#account-modal">Account</a>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, 'class' => 'nav-link text-white', 'id' => 'sign-out-link', 'style' => 'display:none' %>
       </li>
       <% else %>
       <li class="nav-item">

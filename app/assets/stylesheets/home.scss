@@ -56,6 +56,10 @@
   opacity:1;
 }
 
+.field > input{
+  padding: 1px 5px 1px 10px;
+}
+
 textarea {resize: none}
 
 .input-group-text {
@@ -159,6 +163,22 @@ textarea {resize: none}
   position: absolute;
   width: 100%;
   height: 0%;
+}
+
+.modal-tab{
+  color: black !important;
+}
+.modal-tab:active{
+  color: #f09643 !important;
+}
+
+.modal-title {
+  font-size: 1.5625rem;
+  line-height: 1.4em;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  font-weight: 300;
 }
 
 .penguins {
