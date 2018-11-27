@@ -2,7 +2,6 @@ class Operative
 
   def self.fetch_operatives(text)
     if text.strip === ""
-      puts "NO TEXT"
       return nil
     else
       natural_language_understanding = IBMWatson::NaturalLanguageUnderstandingV1.new(
