@@ -1,20 +1,5 @@
 let data = {
-  entries: [
-    // Note: The calendar will not support dates greater than today
-    {date: "2018-11-22", mood: "curious"},
-    {date: "2018-11-21", mood: "happy"},
-    {date: "2018-11-20", mood: "serene"},
-    {date: "2018-11-19", mood: "grateful"},
-    {date: "2018-11-18", mood: "scared"},
-    {date: "2018-11-17", mood: "anxious"},
-    {date: "2018-11-16", mood: "loving"},
-    {date: "2018-11-15", mood: "angry"},
-    {date: "2018-11-14", mood: "sad"},
-    {date: "2018-11-13", mood: "remorseful"},
-    {date: "2018-11-12", mood: "bored"},
-    {date: "2018-11-11", mood: "pensive"},
-    {date: "2018-11-10", mood: "bored"}
-  ],
+  entries: caldata,
   years: [
     { year: "2018", range: {start: "2018-01-01", end: "2018-12-31"} }
   ]
@@ -29,7 +14,7 @@ let data = {
 // even if it just involves ignoring all but the first
 var now = new Date();
 var daysOfYear = [];
-for (var d = new Date(2018, 0, 0); d <= new Date('2018-11-10'); d.setDate(d.getDate() + 1)) {
+for (var d = new Date(2018, 0, 0); d <= new Date(); d.setDate(d.getDate() + 1)) {
     // daysOfYear.push(new Date(d));
     data.entries.push({date: d.toISOString().slice(0,10), mood: "none"})
 }
