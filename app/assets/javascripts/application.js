@@ -45,7 +45,7 @@ $(document).ready(function() {
     let warning = [];
     if (e.hasOwnProperty('email')) { warning.push(`Email ${e["email"][0]}.`) }
     if (e.hasOwnProperty('first_name')) { warning.push(`First name ${e["first_name"][0]}.`) }
-    if (e.hasOwnProperty('last_name')) { warning.push(`Last name ${e["last_name"][0]}.`) }
+    if (e.hasOwnProperty('last_name')) { warning.push(`Last name optional ${e["last_name"][0]}.`) }
     if (e.hasOwnProperty('password')) { warning.push(`Password ${e["password"][0]}.`) }
     if (e.hasOwnProperty('password_confirmation')) { warning.push(`Password confirmation ${e["password_confirmation"][0]}.`) }
     $('#register-alert').html(warning.join('<br>')).fadeIn();
