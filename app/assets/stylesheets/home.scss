@@ -189,7 +189,10 @@ html, body {
 
 .modal-tab{
   color: black !important;
+  padding-left: 10px;
+  padding-right: 10px;
 }
+
 .modal-tab:active{
   color: #f09643 !important;
 }
@@ -236,6 +239,10 @@ canvas.fireworks {
 .plains13 {background-image: url('https://d3827n6zcogzlq.cloudfront.net/plains13.jpg');}
 .plains14 {background-image: url('https://d3827n6zcogzlq.cloudfront.net/plains14.jpg');}
 .plains15 {background-image: url('https://d3827n6zcogzlq.cloudfront.net/plains15.jpg');}
+
+.close:focus {
+  outline-color: #ef9144;
+}
 
 @keyframes slideOutUpBig {
   from {

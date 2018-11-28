@@ -66,6 +66,11 @@ $(document).ready(function() {
     constructor() {
       let new_content = moodTemplate.content.cloneNode(true);
       content_container.appendChild(new_content);
+      let moodCanvas = document.querySelector("#moodchart");
+      drawMoods(moodCanvas, {
+        data: data,
+        themeName: "standard",
+      });
     }
 
     cleanup() {
@@ -132,8 +137,6 @@ $(document).ready(function() {
 
   $('.submit-button').click(next_card);
 
-
-
   // DISSONANCE CHARTING
 
   function setDissonanceBar(percentage) {
@@ -160,8 +163,6 @@ $(document).ready(function() {
 
     chart.draw(data, options);
   }
-
-
 
 })
 

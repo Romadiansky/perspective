@@ -53,6 +53,18 @@
   </div>
 </template>
 
+<template id="mood-template">
+  <div class="row">
+    <div class="col-12">
+      <%= link_to(entries_path) do %>
+        <canvas id="moodchart" style="width:100%; height:80%"></canvas>
+      <% end %>
+      <br>
+      <p>text here that explains the calendar</p>
+    </div>
+  </div>
+</template>
+
 <template id="activities-template">
   <div class="row">
     <div class="col-12">
@@ -120,3 +132,5 @@
     </div>
   </div>
 </template>
+<script type="text/javascript" src="/assets/moment.min.js"></script>
+<script type="text/javascript" src="/assets/moodcalendar.js"></script>
