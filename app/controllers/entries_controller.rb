@@ -13,7 +13,7 @@ class EntriesController < ApplicationController
   def show
     respond_to do |format|
       format.html { }
-      format.json { render json: Spark.new(current_user).next_entry, status: :ok }
+     # format.json { render json: Spark.new(current_user).next_entry, status: :ok }
     end
   end
 
@@ -29,47 +29,41 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.json
   def create
-    if params["answers"]
-      entry = Spark.new(current_user).process_entries(params)
+    # if params["answers"]
+    entry = Spark.new(current_user).process_entries(params)
 
-      watson_text = Dissonance.prepare_for_watson(entry)
-      # puts "===================WATSON TEXT ========"
-      # puts watson_text
-      entry.tone = Dissonance.fetch_tone(watson_text)
+    watson_text = Dissonance.prepare_for_watson(entry)
+    entry.tone = Dissonance.fetch_tone(watson_text)
 
-      q2_nlu_text = Operative.prepare_for_watson_nlu(entry, 2)
-      q2_operatives = Operative.fetch_operatives(q2_nlu_text)
-      # puts "=========================q2 ops"
-      # puts q2_operatives
-      Operative.enter_nlu(q2_operatives, 2, current_user.id)
+    q2_nlu_text = Operative.prepare_for_watson_nlu(entry, 2)
+    q2_operatives = Operative.fetch_operatives(q2_nlu_text)
+    Operative.enter_nlu(q2_operatives, 2, current_user.id)
 
-      q5_nlu_text = Operative.prepare_for_watson_nlu(entry, 5)
-      q5_operatives = Operative.fetch_operatives(q5_nlu_text)
-      # puts "=========================q5 ops"
-      # puts q5_operatives
-      Operative.enter_nlu(q5_operatives, 5, current_user.id)
+    q5_nlu_text = Operative.prepare_for_watson_nlu(entry, 5)
+    q5_operatives = Operative.fetch_operatives(q5_nlu_text)
+    Operative.enter_nlu(q5_operatives, 5, current_user.id)
 
-      if primary_tones = Dissonance.primary_tones(entry.tone)
-        entry.dissonant = Dissonance.is_dissonant?(entry.mood, primary_tones)
-      end
-
-      entry.save
-      entry.finish!
-
-      head :ok
-    else
-      @entry = current_user.entries.new(entry_params)
-
-      respond_to do |format|
-        if @entry.save
-          format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
-          format.json { render json: @entry, status: :ok }
-        else
-          format.html { render :new }
-          format.json { render json: @entry.errors, status: :unprocessable_entity }
-        end
-      end
+    if primary_tones = Dissonance.primary_tones(entry.tone)
+      entry.dissonant = Dissonance.is_dissonant?(entry.mood, primary_tones)
     end
+
+    entry.save
+    entry.finish!
+
+    head :ok
+    # else
+    #   @entry = current_user.entries.new(entry_params)
+
+    #   respond_to do |format|
+    #     if @entry.save
+    #       format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
+    #       format.json { render json: @entry, status: :ok }
+    #     else
+    #       format.html { render :new }
+    #       format.json { render json: @entry.errors, status: :unprocessable_entity }
+    #     end
+    #   end
+    # end
   end
 
   # PATCH/PUT /entries/1

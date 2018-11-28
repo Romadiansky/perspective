@@ -5,6 +5,10 @@
 
   <div class="container">
     <% if current_user %>
+    <script>
+      let dissonance_total = <%= @total %>;
+      let total_entries = <%= @entries.size %>;
+    </script>
     <div class="row">
       <div class="col-12 col-md-8 ml-auto mr-auto">
         <div class="text-center">
@@ -36,7 +40,7 @@
     </div>
     <% end %>
   </div>
-</div>
+</div
 
 <!-- Templates Below -->
 
@@ -44,17 +48,13 @@
   <div class="row">
     <div class="col-12">
       <div id="piechart"></div>
-      <script>
-        let dissonance_total = <%= @total %>;
-        let total_entries = <%= @entries.size %>;
-      </script>
       <br>
       <p>text here that explains the pie</p>
     </div>
   </div>
 </template>
 
-<template id="moodcalendar-template">
+<template id="mood-template">
   <div class="row">
     <div class="col-12">
       <%= link_to(entries_path) do %>
@@ -66,11 +66,11 @@
   </div>
 </template>
 
-<template id="wordcloud2-template">
+<template id="activities-template">
   <div class="row">
     <div class="col-12">
       <script type="text/javascript">
-        var word_array = <%= raw @wordlist2.to_json %>;
+        var word_array = <%= raw @activities.to_json %>;
         $(function() {
           // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
           $("#wordcloud").jQCloud(word_array);
@@ -78,16 +78,16 @@
       </script>
       <center><div id="wordcloud" style="width: 50vmin; height: 50vmin;"></div></center>
       <br>
-      <p>text here that explains the cloud</p>
+      <p>Activities</p>
     </div>
   </div>
 </template>
 
-<template id="wordcloud3-template">
+<template id="people-template">
   <div class="row">
     <div class="col-12">
       <script type="text/javascript">
-        var word_array = <%= raw @wordlist3.to_json %>;
+        var word_array = <%= raw @people.to_json %>;
         $(function() {
           // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
           $("#wordcloud").jQCloud(word_array);
@@ -95,16 +95,16 @@
       </script>
       <center><div id="wordcloud" style="width: 50vmin; height: 50vmin;"></div></center>
       <br>
-      <p>text here that explains the cloud</p>
+      <p>people</p>
     </div>
   </div>
 </template>
 
-<template id="wordcloud4-template">
+<template id="adjectives-template">
   <div class="row">
     <div class="col-12">
       <script type="text/javascript">
-        var word_array = <%= raw @wordlist4.to_json %>;
+        var word_array = <%= raw @adjectives.to_json %>;
         $(function() {
           // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
           $("#wordcloud").jQCloud(word_array);
@@ -112,16 +112,16 @@
       </script>
       <center><div id="wordcloud" style="width: 50vmin; height: 50vmin;"></div></center>
       <br>
-      <p>text here that explains the cloud</p>
+      <p>Adjectives</p>
     </div>
   </div>
 </template>
 
-<template id="wordcloud5-template">
+<template id="gratitude-template">
   <div class="row">
     <div class="col-12">
       <script type="text/javascript">
-        var word_array = <%= raw @wordlist5.to_json %>;
+        var word_array = <%= raw @gratitude.to_json %>;
         $(function() {
           // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
           $("#wordcloud").jQCloud(word_array);
@@ -129,7 +129,7 @@
       </script>
       <center><div id="wordcloud" style="width: 50vmin; height: 50vmin;"></div></center>
       <br>
-      <p>text here that explains the cloud</p>
+      <p>Gratitude</p>
     </div>
   </div>
 </template>
