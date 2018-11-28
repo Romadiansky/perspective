@@ -8,7 +8,7 @@
 
 Question.destroy_all
 Question.create(id: 1, body: "The mood you were in:", watson: false, interface_name: "mood")
-Question.create(id: 2, body: "What did that day:", watson: false, interface_name: "text_list")
+Question.create(id: 2, body: "What you did that day:", watson: false, interface_name: "text_list")
 Question.create(id: 3, body: "Who your day involved:", watson: false, interface_name: "text_list")
 Question.create(id: 4, body: "The way you described your day:", watson: false, interface_name: "text_list")
 Question.create(id: 5, body: "What you were grateful for:", watson: false, interface_name: "text_list")
