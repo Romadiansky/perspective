@@ -180,12 +180,12 @@ $(document).ready(function() {
       };
     }
     llama_entry.answers = llama_entry.answers.concat(current_prompt_handler.collect_answers());
-    current_prompt_handler.cleanup();
     current_prompt_index ++;
 
     if (current_prompt_index < prompts_list.length) {
       $('.advice').removeClass('anim-typewriter')
       $('.container').animateCss('slideOutUpBig', function(e) {
+        current_prompt_handler.cleanup();
         load_prompt(current_prompt_index);
         $('.container').animateCss('slideInUpBig');
       });
