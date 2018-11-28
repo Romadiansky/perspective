@@ -60,11 +60,11 @@ class Dissonance
       grateful: ["sadness", "fear", "anger"],
       scared: ["confident", "joy"],
       anxious: ["sadness", "confident", "joy"],
-      love: ["fear", "confident", "anger"],
-      angry: ["joy", "sadness"],
-      sad: ["joy", "confident"],
-      remorseful: ["joy", "confident", "anger"],
-      bored: ["joy", "confident", "fear"],
+      love: ["fear", "confident", "anger", "sadness"],
+      angry: ["joy", "sadness", "sadness", "confident"],
+      sad: ["joy", "confident", "anger", "fear"],
+      remorseful: ["joy", "confident", "anger", "fear"],
+      bored: ["joy", "confident", "fear", "anger"],
       pensive: ["joy", "confident", "anger"]
     }[mood]
   end

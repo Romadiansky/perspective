@@ -72,6 +72,7 @@ var Fireworks = (function() {
 
   }
 
+  // makes boom! calls on random interval generator to decide when
   function makeBoom(){
     setTimeout(function(){
       createParticle({x: getRandomInt(0, viewportWidth), y: getRandomInt(0, viewportHeight)});
