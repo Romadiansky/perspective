@@ -187,21 +187,26 @@ $(document).ready(function() {
 
   function afterEntry(){
     $('.advice').removeClass('anim-typewriter');
-    $('.question').fadeOut();
-    $('.cont-center').animateCss('fadeOutDown', function(){
-      $('.cont-center').css('opacity', 0);
-      $('.advice').html("Oh, you're still here...").addClass('anim-typewriter')
+    $('.question').css('opacity', 0);
+    $('.card').fadeOut();
+    $('.advice').html("You did the thing! See you tomorrow?").addClass('anim-typewriter');
+    setTimeout(function(){
+      $('.advice').html('').removeClass('anim-typewriter');
       setTimeout(function(){
-        $('.advice').html('').removeClass('anim-typewriter');
+        $('.advice').html("Go live your life! For both of us.").addClass('anim-typewriter');
         setTimeout(function(){
-          $('.advice').html("That's it, though. The whole show. Go live your life.").addClass('anim-typewriter')
-        }, 50);
-      }, 4000);
-    });
+          $('.advice').html('').removeClass('anim-typewriter');
+          setTimeout(function(){
+            Fireworks.initialize();
+            $('.advice').html("You're still here? Okay... That's cool. We can hang.").addClass('anim-typewriter');
+          }, 300);
+        }, 6000);
+      }, 300);
+    }, 7000);
   }
 
   function changeBackground() {
-    let options = ['penguins', 'butterfly', 'doggo'];
+    let options = ['penguins', 'butterfly', 'doggo', 'llama1'];
     let newPhoto = options[Math.floor(Math.random() * options.length)];
     let fullScreen = $('.full-screen');
     fullScreen.removeClass(fullScreen.data('photo')).addClass(newPhoto).data('photo', newPhoto);
@@ -218,7 +223,7 @@ $(document).ready(function() {
 
   let slideshow = setInterval(changeBackground, 30000);
 
-  new WOW().init();
+  // new WOW().init();
 
 //convenience function: generates valid ajax submissions (instead of the previous >= from today's line 157)
   $('.test-stable').click(function(e){

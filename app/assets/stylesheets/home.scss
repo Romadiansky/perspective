@@ -80,6 +80,10 @@ textarea {resize: none}
   padding: 22.5px 72px 22.5px 15px;
 }
 
+html, body {
+  overflow: hidden;
+}
+
 .full-screen {
   position: fixed !important;
   width: 100%;
@@ -139,7 +143,7 @@ textarea {resize: none}
 }
 
 .question {
-  font-size: 2.4rem;
+  font-size: 2.15rem;
   line-height: 1.6em;
   -webkit-font-smoothing: antialiased;
   margin: 20px 0 10px 0;
@@ -199,17 +203,39 @@ textarea {resize: none}
   font-weight: 300;
 }
 
-.penguins {
-  background-image: url('https://d3827n6zcogzlq.cloudfront.net/penguins.jpg');
+canvas.fireworks {
+  -webkit-transform: translateZ(0);
+  opacity: 0.5;
 }
 
-.butterfly {
-  background-image: url('https://d3827n6zcogzlq.cloudfront.net/butterfly.jpg');
-}
+.penguins   {background-image: url('https://d3827n6zcogzlq.cloudfront.net/penguins.jpg');}
+.butterfly  {background-image: url('https://d3827n6zcogzlq.cloudfront.net/butterfly.jpg');}
+.doggo      {background-image: url('https://d3827n6zcogzlq.cloudfront.net/doggo.jpg');}
 
-.doggo {
-  background-image: url('https://d3827n6zcogzlq.cloudfront.net/doggo.jpg');
-}
+.llama1 {background-image: url('https://d3827n6zcogzlq.cloudfront.net/llama1.jpg');}
+.llama2 {background-image: url('https://d3827n6zcogzlq.cloudfront.net/llama2.jpg');}
+.llama3 {background-image: url('https://d3827n6zcogzlq.cloudfront.net/llama3.jpg');}
+.llama4 {background-image: url('https://d3827n6zcogzlq.cloudfront.net/llama4.jpg');}
+.llama5 {background-image: url('https://d3827n6zcogzlq.cloudfront.net/llama5.jpg');}
+.llama6 {background-image: url('https://d3827n6zcogzlq.cloudfront.net/llama6.jpg');}
+.llama7 {background-image: url('https://d3827n6zcogzlq.cloudfront.net/llama7.jpg');}
+.llama8 {background-image: url('https://d3827n6zcogzlq.cloudfront.net/llama8.jpg');}
+
+.plains1  {background-image: url('https://d3827n6zcogzlq.cloudfront.net/plains1.jpg');}
+.plains2  {background-image: url('https://d3827n6zcogzlq.cloudfront.net/plains2.jpg');}
+.plains3  {background-image: url('https://d3827n6zcogzlq.cloudfront.net/plains3.jpg');}
+.plains4  {background-image: url('https://d3827n6zcogzlq.cloudfront.net/plains4.jpg');}
+.plains5  {background-image: url('https://d3827n6zcogzlq.cloudfront.net/plains5.jpg');}
+.plains6  {background-image: url('https://d3827n6zcogzlq.cloudfront.net/plains6.jpg');}
+.plains7  {background-image: url('https://d3827n6zcogzlq.cloudfront.net/plains7.jpg');}
+.plains8  {background-image: url('https://d3827n6zcogzlq.cloudfront.net/plains8.jpg');}
+.plains9  {background-image: url('https://d3827n6zcogzlq.cloudfront.net/plains9.jpg');}
+.plains10 {background-image: url('https://d3827n6zcogzlq.cloudfront.net/plains10.jpg');}
+.plains11 {background-image: url('https://d3827n6zcogzlq.cloudfront.net/plains11.jpg');}
+.plains12 {background-image: url('https://d3827n6zcogzlq.cloudfront.net/plains12.jpg');}
+.plains13 {background-image: url('https://d3827n6zcogzlq.cloudfront.net/plains13.jpg');}
+.plains14 {background-image: url('https://d3827n6zcogzlq.cloudfront.net/plains14.jpg');}
+.plains15 {background-image: url('https://d3827n6zcogzlq.cloudfront.net/plains15.jpg');}
 
 @keyframes slideOutUpBig {
   from {

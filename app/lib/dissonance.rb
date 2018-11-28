@@ -19,14 +19,9 @@ class Dissonance
       end.reject do |tone|
         ["tentative", "analytical"].include?(tone["tone_id"])
       end
-      #if tones.size == 1
-        [tones[0]["tone_id"]]
-      #else
-      #  [tones[0]["tone_id"], tones[1]["tone_id"]]
-      #end
-    else
-      nil
+      return [tones[0]["tone_id"]] if tones.any?
     end
+    nil
   end
 
   def self.prepare_for_watson(entry)
@@ -57,19 +52,20 @@ class Dissonance
   end
 
   def self.moods(mood)
+    # anger fear sadness confident joy
     {
-      curious: ["anger", "fear", "sadness"],
+      curious: ["anger", "fear", "sadness", "confident"],
       happy: ["anger", "fear", "sadness"],
-      serene: ["sadness", "fear", "anger"],
+      serene: ["sadness", "fear", "anger", "confident"],
       grateful: ["sadness", "fear", "anger"],
       scared: ["confident", "joy"],
-      anxious: ["sadness", "confident"],
+      anxious: ["sadness", "confident", "joy"],
       love: ["fear", "confident", "anger"],
-      angry: ["joy"],
+      angry: ["joy", "sadness"],
       sad: ["joy", "confident"],
       remorseful: ["joy", "confident", "anger"],
-      bored: ["joy", "confident"],
-      pensive: ["joy", "confident"]
+      bored: ["joy", "confident", "fear"],
+      pensive: ["joy", "confident", "anger"]
     }[mood]
   end
 end
