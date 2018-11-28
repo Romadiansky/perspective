@@ -1,10 +1,22 @@
 $(document).ready(function() {
 
-  let dissonance_template = document.querySelector("#dissonance-template");
-
-  class Card_handler_dissonance_chart {
+  let dissonanceTemplate = document.querySelector("#dissonance-template");
+  class dissonanceHandler {
     constructor() {
-      let new_content = dissonance_template.content.cloneNode(true);
+      let new_content = dissonanceTemplate.content.cloneNode(true);
+      content_container.appendChild(new_content);
+      google.charts.setOnLoadCallback(drawChart);
+    }
+
+    cleanup() {
+      $(content_container).empty();
+    }
+  };
+
+  let activitiesTemplate = document.querySelector("#activities-template");
+  class activitiesHandler {
+    constructor() {
+      let new_content = activitiesTemplate.content.cloneNode(true);
       content_container.appendChild(new_content);
     }
 
@@ -13,67 +25,52 @@ $(document).ready(function() {
     }
   };
 
-  let moodcalendar_template = document.querySelector("#moodcalendar-template");
-  class Card_handler_moodcalendar {
+  let peopleTemplate = document.querySelector("#people-template");
+  class peopleHandler {
     constructor() {
-      let new_content = moodcalendar_template.content.cloneNode(true);
+      let new_content = peopleTemplate.content.cloneNode(true);
       content_container.appendChild(new_content);
-      // Specify the canvas to draw the calendar on
+    }
+
+    cleanup() {
+      $(content_container).empty();
+    }
+  };
+
+  let adjectivesTemplate = document.querySelector("#adjectives-template");
+  class adjectivesHandler {
+    constructor() {
+      let new_content = adjectivesTemplate.content.cloneNode(true);
+      content_container.appendChild(new_content);
+    }
+
+    cleanup() {
+      $(content_container).empty();
+    }
+  };
+
+  let gratitudeTemplate = document.querySelector("#gratitude-template");
+  class gratitudeHandler {
+    constructor() {
+      let new_content = gratitudeTemplate.content.cloneNode(true);
+      content_container.appendChild(new_content);
+    }
+
+    cleanup() {
+      $(content_container).empty();
+    }
+  };
+
+  let moodTemplate = document.querySelector("#mood-template");
+  class moodHandler {
+    constructor() {
+      let new_content = moodTemplate.content.cloneNode(true);
+      content_container.appendChild(new_content);
       let moodCanvas = document.querySelector("#moodchart");
-       drawMoods(moodCanvas, {
+      drawMoods(moodCanvas, {
         data: data,
         themeName: "standard",
       });
-    }
-     cleanup() {
-      $(content_container).empty();
-    }
-  };
-
-  let wordcloud2_template = document.querySelector("#wordcloud2-template");
-  class Card_handler_wordcount2 {
-    constructor() {
-      let new_content = wordcloud2_template.content.cloneNode(true);
-      content_container.appendChild(new_content);
-    }
-
-    cleanup() {
-      $(content_container).empty();
-    }
-  };
-
-
-  let wordcloud3_template = document.querySelector("#wordcloud3-template");
-  class Card_handler_wordcount3 {
-    constructor() {
-      let new_content = wordcloud3_template.content.cloneNode(true);
-      content_container.appendChild(new_content);
-    }
-
-    cleanup() {
-      $(content_container).empty();
-    }
-  };
-
-
-  let wordcloud4_template = document.querySelector("#wordcloud4-template");
-  class Card_handler_wordcount4 {
-    constructor() {
-      let new_content = wordcloud4_template.content.cloneNode(true);
-      content_container.appendChild(new_content);
-    }
-
-    cleanup() {
-      $(content_container).empty();
-    }
-  };
-
-
-  let wordcloud5_template = document.querySelector("#wordcloud5-template");
-  class Card_handler_wordcount5 {
-    constructor() {
-      let new_content = wordcloud5_template.content.cloneNode(true);
-      content_container.appendChild(new_content);
     }
 
     cleanup() {
@@ -83,32 +80,31 @@ $(document).ready(function() {
 
   let card_list = [
     {
-      title: "DISSONANCE",
-      subtitle: "FILL ME IN",
-      handler_class: Card_handler_dissonance_chart
+      title: "Gratitude Cloud",
+      subtitle: "Things you've been grateful for",
+      handler_class: gratitudeHandler
     },
     {
-      title: "MOOD CALENDAR!!!",
+      title: "Mood",
       subtitle: "FILL ME IN",
-      handler_class: Card_handler_moodcalendar
+      handler_class: moodHandler
     },
     {
-      title: "WORDCLOUD2",
+      title: "Activities",
       subtitle: "FILL ME IN",
-      handler_class: Card_handler_wordcount2
-    },
-    {
-      title: "WORDCLOUD3",
-      subtitle: "FILL ME IN",
-      handler_class: Card_handler_wordcount3
+      handler_class: activitiesHandler
     },    {
-      title: "WORDCLOUD4",
+      title: "People",
       subtitle: "FILL ME IN",
-      handler_class: Card_handler_wordcount4
+      handler_class: peopleHandler
     },    {
-      title: "WORDCLOUD5",
+      title: "Dissonance",
       subtitle: "FILL ME IN",
-      handler_class: Card_handler_wordcount5
+      handler_class: dissonanceHandler
+    },    {
+      title: "Adjectives",
+      subtitle: "FILL ME IN",
+      handler_class: adjectivesHandler
     },
   ];
 
@@ -141,8 +137,6 @@ $(document).ready(function() {
 
   $('.submit-button').click(next_card);
 
-
-
   // DISSONANCE CHARTING
 
   function setDissonanceBar(percentage) {
@@ -152,7 +146,6 @@ $(document).ready(function() {
   setDissonanceBar(10);
 
   google.charts.load('current', {'packages':['corechart']});
-  google.charts.setOnLoadCallback(drawChart);
 
   function drawChart() {
     var data = google.visualization.arrayToDataTable([
@@ -170,8 +163,6 @@ $(document).ready(function() {
 
     chart.draw(data, options);
   }
-
-
 
 })
 
