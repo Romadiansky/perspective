@@ -42,6 +42,7 @@ $(document).ready(function() {
     constructor() {
       let new_content = adjectivesTemplate.content.cloneNode(true);
       content_container.appendChild(new_content);
+      $('.submit-button').hide();
     }
 
     cleanup() {
@@ -85,13 +86,13 @@ $(document).ready(function() {
       handler_class: gratitudeHandler
     },
     {
-      title: "Mood",
-      subtitle: "FILL ME IN",
+      title: "Mood Chart",
+      subtitle: "Your moods over the past year",
       handler_class: moodHandler
     },
     {
       title: "Activities",
-      subtitle: "FILL ME IN",
+      subtitle: "The things you do most",
       handler_class: activitiesHandler
     },    {
       title: "People",

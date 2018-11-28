@@ -12,7 +12,7 @@
     <div class="row">
       <div class="col-12 col-md-8 ml-auto mr-auto">
         <div class="text-center">
-          <h3 class="colour-title title">Trends</h3>
+          <h3 class="colour-title question title">Trends</h3>
           <p class="description advice text-white">Subtitle</p>
         </div>
         <div class="card card-raised card-form-horizontal mt-4">
@@ -48,8 +48,11 @@
   <div class="row">
     <div class="col-12">
       <div id="piechart"></div>
-      <br>
-      <p>text here that explains the pie</p>
+      <div class="row">
+        <div class="col-11 ml-auto">
+          <p>Sometimes, the way that we feel and the way that we talk or behave can get out of sync, and we might not even realize it. Smart humans figured out that you can detect what experts call 'dissonance' by looking for patterns of words that don't line up with the way we feel. Some degree of dissonance is normal, and 'normal' is different for all people. </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -58,10 +61,13 @@
   <div class="row">
     <div class="col-12">
       <%= link_to(entries_path) do %>
-        <canvas id="moodchart" style="width:100%; height:80%"></canvas>
+        <canvas id="moodchart" style="width:650px; height:80%"></canvas>
       <% end %>
-      <br>
-      <p>text here that explains the calendar</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-11 ml-auto">
+      <p>Did you ever see the movie 'Office Space'? Every day of Peter's life was worse than the day before. That was so sad! In real life, we have good days AND bad days. Tracking them can help you set goals and identify patterns.</p>
     </div>
   </div>
 </template>
@@ -76,9 +82,12 @@
           $("#wordcloud").jQCloud(word_array);
         });
       </script>
-      <center><div id="wordcloud" style="width: 50vmin; height: 50vmin;"></div></center>
-      <br>
-      <p>Activities</p>
+      <div id="wordcloud" class="mx-auto" style="width: 50vmin;"></div>
+      <div class="row">
+        <div class="col-11 ml-auto">
+          <p>Obvious as it may be, it's often a surprise to people the extent to which the way that they feel is impacted by what they do. Check out how you've been voting with your time and ask yourself if it lines up with your values.</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -93,9 +102,12 @@
           $("#wordcloud").jQCloud(word_array);
         });
       </script>
-      <center><div id="wordcloud" style="width: 50vmin; height: 50vmin;"></div></center>
-      <br>
-      <p>people</p>
+      <div id="wordcloud" class="mx-auto" style="width: 50vmin;"></div>
+      <div class="row">
+        <div class="col-11 ml-auto">
+          <p>We are a reflection of those around us. That's why I keep you around! Make sure the people in your life leave a positive footprint. Pay attention to how your mood changes when you have different people in your life.</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -110,9 +122,12 @@
           $("#wordcloud").jQCloud(word_array);
         });
       </script>
-      <center><div id="wordcloud" style="width: 50vmin; height: 50vmin;"></div></center>
-      <br>
-      <p>Adjectives</p>
+      <div id="wordcloud" class="mx-auto" style="width: 50vmin;"></div>
+      <div class="row">
+        <div class="col-11 ml-auto">
+          <p>If I didn't know you as well as I do, I'd want to know you better. If I had a home, I would invite you over for a dinner party for sure.</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -127,9 +142,12 @@
           $("#wordcloud").jQCloud(word_array);
         });
       </script>
-      <center><div id="wordcloud" style="width: 50vmin; height: 50vmin;"></div></center>
-      <br>
-      <p>Gratitude</p>
+      <div id="wordcloud" class="mx-auto" style="width: 50vmin;"></div>
+      <div class="row">
+        <div class="col-11 ml-auto">
+          <p>If self-awareness is the secret sauce to a life well lived, gratitude is the recipe. We don't usually spend time consciously reflecting on what we feel grateful for. But, being aware of these things will take us far, and it starts with the littlest things; were you on time to your meeting despite the weather? Did a stranger pay you a welcome compliment?</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
