@@ -121,12 +121,12 @@ $(document).ready(function() {
   }
 
   function next_card() {
-    current_card_handler.cleanup();
     current_card_index ++;
 
     if (current_card_index < card_list.length) {
       $('.advice').removeClass('anim-typewriter')
       $('.container').animateCss('slideOutUpBig', function(e) {
+        current_card_handler.cleanup();
         load_card(current_card_index);
         $('.container').animateCss('slideInUpBig');
       });
