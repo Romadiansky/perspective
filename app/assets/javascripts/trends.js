@@ -42,6 +42,7 @@ $(document).ready(function() {
     constructor() {
       let new_content = adjectivesTemplate.content.cloneNode(true);
       content_container.appendChild(new_content);
+      $('.submit-button').hide();
     }
 
     cleanup() {
