@@ -186,7 +186,7 @@ function drawYear(ctx) {
 
     if (monthChanged && !firstMonthIsDec) {
       ctx.fillStyle = theme.meta;
-      // ctx.fillText(_date.format('MMM'), offsetX + (boxWidth + boxMargin) * _y, offsetY);
+      ctx.fillText(_date.format('MMM'), offsetX + (boxWidth + boxMargin) * _y, offsetY);
       lastCountedMonth = month;
     }
   }
@@ -202,7 +202,8 @@ function drawMoods(canvas, opts) {
   ctx.scale(scaleFactor, scaleFactor);
   ctx.textBaseline = "hanging";
 
-  canvasMarginWidth = (ctx.canvas.width - 558) / 2;
+  // canvasMarginWidth = (ctx.canvas.width - 558) / 2;
+  canvasMarginWidth = 0;
 
   data.years.forEach(function (year, i) {
     var offsetY = yearHeight * i + canvasMarginHeight + headerHeight;

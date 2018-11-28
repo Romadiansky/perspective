@@ -22,6 +22,15 @@ h1.orange,h2.orange,h3.orange,h4.orange,h5.orange,a.orange {
   color: #ef5350;
 }
 
+p {
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+}
+
+#wordcloud {
+  overflow-y: hidden;
+  height: 320px;
+}
+
 /*.cont-center {
   margin-top: calc(30%);
 }*/
