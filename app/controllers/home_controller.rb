@@ -1,8 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-    puts "====================="
-    puts mood_counter
+    @moodcount = mood_counter
   end
 
   private
@@ -17,3 +16,5 @@ class HomeController < ApplicationController
   end
 
 end
+
+
