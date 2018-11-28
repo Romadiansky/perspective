@@ -13,6 +13,22 @@ $(document).ready(function() {
     }
   };
 
+  let moodcalendar_template = document.querySelector("#moodcalendar-template");
+  class Card_handler_moodcalendar {
+    constructor() {
+      let new_content = moodcalendar_template.content.cloneNode(true);
+      content_container.appendChild(new_content);
+      // Specify the canvas to draw the calendar on
+      let moodCanvas = document.querySelector("#moodchart");
+       drawMoods(moodCanvas, {
+        data: data,
+        themeName: "standard",
+      });
+    }
+     cleanup() {
+      $(content_container).empty();
+    }
+  };
 
   let wordcloud2_template = document.querySelector("#wordcloud2-template");
   class Card_handler_wordcount2 {
@@ -70,6 +86,11 @@ $(document).ready(function() {
       title: "DISSONANCE",
       subtitle: "FILL ME IN",
       handler_class: Card_handler_dissonance_chart
+    },
+    {
+      title: "MOOD CALENDAR!!!",
+      subtitle: "FILL ME IN",
+      handler_class: Card_handler_moodcalendar
     },
     {
       title: "WORDCLOUD2",
