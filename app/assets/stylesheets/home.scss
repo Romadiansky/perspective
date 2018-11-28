@@ -185,7 +185,10 @@ textarea {resize: none}
 
 .modal-tab{
   color: black !important;
+  padding-left: 10px;
+  padding-right: 10px;
 }
+
 .modal-tab:active{
   color: #f09643 !important;
 }
@@ -197,6 +200,10 @@ textarea {resize: none}
   margin: 0;
   font-family: Roboto,Helvetica,Arial,sans-serif;
   font-weight: 300;
+}
+
+.close:focus {
+  outline-color: #ef9144;
 }
 
 .penguins {

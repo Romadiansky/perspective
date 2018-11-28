@@ -124,6 +124,19 @@ $(document).ready(function() {
     }
 
     cleanup() {
+      let moodpeople = moodcount[$('.mood-input').val()]
+      switch (moodpeople) {
+        case undefined:
+          break;
+        case 0:
+          break;
+        case 1:
+          notify(`${moodpeople} other person feels the same way!`)
+          break;
+        default:
+          notify(`${moodpeople} other people feel the same way!`)
+          break;
+      }
       $("#input-container").empty();
     }
   };
