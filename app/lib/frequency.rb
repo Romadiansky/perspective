@@ -7,7 +7,7 @@ class Frequency
       if wc.question_id == question_id
         if question_id == 3
           wc.word_counter.each do |word, weight|
-            wordlist << { "text" => "#{word.capitalize}", "weight" => weight }
+            wordlist << { "text" => "#{word.titleize}", "weight" => weight }
           end
         else
           wc.word_counter.each do |word, weight|
