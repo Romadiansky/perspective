@@ -18,6 +18,7 @@
 //= require bootstrap-notify.min
 //= require wow.min
 //= require jqcloud
+//= require backstretch
 // require_tree .
 
 $(document).ready(function() {

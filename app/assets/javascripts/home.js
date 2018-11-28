@@ -45,6 +45,7 @@ $(document).ready(function() {
   let llama_entry = {
     answers: []
   };
+
   let current_prompt_handler;
   let current_prompt_index = 0;
 
@@ -180,7 +181,7 @@ $(document).ready(function() {
       };
     }
     llama_entry.answers = llama_entry.answers.concat(current_prompt_handler.collect_answers());
-    current_prompt_index ++;
+    current_prompt_index++;
 
     if (current_prompt_index < prompts_list.length) {
       $('.advice').removeClass('anim-typewriter')
@@ -225,16 +226,27 @@ $(document).ready(function() {
     fullScreen.removeClass(fullScreen.data('photo')).addClass(newPhoto).data('photo', newPhoto);
   }
 
-  $('.container').animateCss('fadeInDown', function(e) {
-    // opacity has to be set to 0 in HTML for the illusion to work
-    $('.container').css('opacity', '1');
-  });
-
-  load_prompt(current_prompt_index);
-
   $('.submit-button').click(finish_prompt);
 
   let slideshow = setInterval(changeBackground, 30000);
+
+  if ($('body').data('user') === false) {
+    $('#welcome-modal').modal('show');
+    $('.welcome-modal-body').backstretch('https://d3827n6zcogzlq.cloudfront.net/plains5.jpg');
+    $('#welcome-modal').on('hide.bs.modal', function(){
+      $('.container').animateCss('fadeInDown', function(e) {
+        // opacity has to be set to 0 in HTML for the illusion to work
+        $('.container').css('opacity', '1');
+      });
+      load_prompt(current_prompt_index);
+    });
+  } else {
+    $('.container').animateCss('fadeInDown', function(e) {
+      // opacity has to be set to 0 in HTML for the illusion to work
+      $('.container').css('opacity', '1');
+    });
+    load_prompt(current_prompt_index);
+  }
 
   // new WOW().init();
 

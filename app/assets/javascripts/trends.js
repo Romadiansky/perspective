@@ -91,20 +91,20 @@ $(document).ready(function() {
       handler_class: moodHandler
     },
     {
-      title: "Activities",
+      title: "Activity Cloud",
       subtitle: "The things you do most",
       handler_class: activitiesHandler
     },    {
-      title: "People",
-      subtitle: "FILL ME IN",
+      title: "Familiar Faces",
+      subtitle: "The people you think about most",
       handler_class: peopleHandler
     },    {
       title: "Dissonance",
-      subtitle: "FILL ME IN",
+      subtitle: "We all have those days",
       handler_class: dissonanceHandler
     },    {
-      title: "Adjectives",
-      subtitle: "FILL ME IN",
+      title: "Description Cloud",
+      subtitle: "Life at selfie-distance",
       handler_class: adjectivesHandler
     },
   ];
@@ -157,7 +157,8 @@ $(document).ready(function() {
     console.log('TODO: uncomment the "total entries" and "dissonance_total" lines above, and debug')
 
     var options = {
-      title: 'Dissonance Pie'
+      title: 'Yummy, Yummy Dissonance Pie',
+      colors: ['tomato', '#E0B31F']
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
