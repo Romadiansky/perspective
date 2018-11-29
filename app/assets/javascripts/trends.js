@@ -151,7 +151,7 @@ $(document).ready(function() {
   function drawChart() {
     var data = google.visualization.arrayToDataTable([
       ['Entries', 'Detected Dissonance'],
-      ['healthy entries',     total_entries],
+      ['entries without dissonance', total_entries],
       ['dissonance detected', dissonance_total]
     ]);
     console.log('TODO: uncomment the "total entries" and "dissonance_total" lines above, and debug')
