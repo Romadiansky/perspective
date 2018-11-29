@@ -4,8 +4,8 @@ class TrendsController < ApplicationController
   def index
       @moods = ["thoughtful", "curious", "serene", "grateful", "love", "happy", "anxious", "scared", "angry", "bored", "sad", "remorseful"]
     if current_user
-      @entries = current_user.entries
       @total = Dissonance.total(current_user)
+      @entries = current_user.entries.count - @total
       @activities = Frequency.pull(current_user.id, 2)
       @people = Frequency.pull(current_user.id, 3)
       @adjectives = Frequency.pull(current_user.id, 4)

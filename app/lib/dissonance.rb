@@ -45,7 +45,7 @@ class Dissonance
   def self.total(user)
     entries = user.entries
     if entries.count >= MINIMUM_ENTRIES
-      entries.where(:dissonant => true).count.to_f / entries.count.to_f
+      entries.where(:dissonant => true).count
     else
       0
     end

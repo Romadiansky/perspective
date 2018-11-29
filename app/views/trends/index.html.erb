@@ -1,13 +1,13 @@
 <script> let caldata = <%= raw @caldata.to_json %>; </script>
 
 <div class="full-screen penguins" data-photo="penguins">
-  <br><br><br><br>
+  <br><br><br>
 
   <div class="container">
     <% if current_user %>
     <script>
       let dissonance_total = <%= @total %>;
-      let total_entries = <%= @entries.size %>;
+      let total_entries = <%= @entries %>;
     </script>
     <div class="row">
       <div class="col-12 col-md-8 ml-auto mr-auto">
